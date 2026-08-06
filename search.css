@@ -1,0 +1,349 @@
+/* ==========================================================================
+   Forsko - Universal Global Search Stylesheet
+   Theme: Dark Navy (#0F172A) | Sky Blue (#3B82F6) | Glassmorphism | White
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Search Bar Container & Input Wrapper
+   -------------------------------------------------------------------------- */
+.nav-search-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 16px;
+  z-index: 1005;
+}
+
+.nav-search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  padding: 6px 14px 6px 38px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-search-input-wrapper:focus-within {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #3B82F6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 14px;
+  color: #94A3B8;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: color 0.25s ease;
+}
+
+.nav-search-input-wrapper:focus-within .nav-search-icon {
+  color: #3B82F6;
+}
+
+.nav-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.nav-search-input::placeholder {
+  color: #94A3B8;
+  opacity: 0.85;
+}
+
+.nav-search-clear {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.nav-search-clear:hover {
+  color: #FFFFFF;
+}
+
+.nav-search-clear.hidden {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Live Search Results Dropdown
+   -------------------------------------------------------------------------- */
+.global-search-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 480px;
+  max-height: 420px;
+  background: rgba(15, 23, 42, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(59, 130, 246, 0.25);
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1010;
+  animation: searchFadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.global-search-dropdown.hidden {
+  display: none !important;
+}
+
+@keyframes searchFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Glassmorphism Scrollbar */
+.global-search-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.global-search-dropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.global-search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+
+.global-search-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* --------------------------------------------------------------------------
+   3. Search Result Card Item
+   -------------------------------------------------------------------------- */
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover,
+.search-result-item.is-selected,
+.search-result-item:focus {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateX(4px);
+}
+
+.search-result-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #3B82F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover .search-result-icon,
+.search-result-item.is-selected .search-result-icon {
+  background: #3B82F6;
+  color: #FFFFFF;
+}
+
+.search-result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.search-result-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.search-result-desc {
+  font-size: 0.82rem;
+  color: #94A3B8;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.search-result-arrow {
+  color: #94A3B8;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-result-item:hover .search-result-arrow,
+.search-result-item.is-selected .search-result-arrow {
+  color: #3B82F6;
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Category Badges
+   -------------------------------------------------------------------------- */
+.category-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Category Color Specifications */
+.badge-syllabus {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3B82F6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge-notes {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-pyqs {
+  background: rgba(249, 115, 22, 0.15);
+  color: #F97316;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.badge-question-bank {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-paper-pattern {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-practicals {
+  background: rgba(20, 184, 166, 0.15);
+  color: #14B8A6;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.badge-resources {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94A3B8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* Highlighted Match Text */
+.search-highlight {
+  background-color: rgba(59, 130, 246, 0.35);
+  color: #FFFFFF;
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   5. Empty State Container
+   -------------------------------------------------------------------------- */
+.search-empty-state {
+  text-align: center;
+  padding: 30px 16px;
+  color: #94A3B8;
+}
+
+.search-empty-icon {
+  font-size: 2.2rem;
+  color: #64748B;
+  margin-bottom: 10px;
+}
+
+.search-empty-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.search-empty-text {
+  font-size: 0.85rem;
+  color: #94A3B8;
+}
+
+/* --------------------------------------------------------------------------
+   6. Mobile Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .nav-search-container {
+    max-width: 100%;
+    margin: 10px 0;
+    order: 3; /* Positions nicely in mobile layout */
+  }
+
+  .global-search-dropdown {
+    position: fixed;
+    top: 135px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-height: 65vh;
+  }
+}
