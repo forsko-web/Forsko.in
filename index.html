@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forsko | Computer Science Learning Platform</title>
+
+  <!-- Google Fonts: Exo 2 & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* moved inline styles from HTML to CSS file scope */
+    .sub-badge.center { display: block; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="FORSKO2.png" alt="Forsko Logo" class="logo-image">
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="syllabus.html" class="nav-link">Syllabus</a>
+        <a href="notes.html" class="nav-link">Notes</a>
+        <a href="pyqs.html" class="nav-link">PYQs</a>
+        <a href="question-bank.html" class="nav-link">Question Bank</a>
+        <a href="paper-patterns.html" class="nav-link">Paper Patterns</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+<!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+  <!-- ==========================================
+     Forsko - Interactive Hero Section
+     ========================================== -->
+<section class="hero" id="home">
+  <!-- Background Ambient Aurora & Glow -->
+  <div class="hero-aurora-bg"></div>
+  <div class="hero-ambient-blob blob-left"></div>
+  <div class="hero-ambient-blob blob-right"></div>
+
+  <div class="hero-container">
+    
+    <!-- Hero Left: Text Content -->
+    <div class="hero-content">
+      <!-- Live Badge with Radar Pulse -->
+      <div class="hero-badge">
+        <span class="pulse-dot">
+          <span class="pulse-ring"></span>
+        </span> 
+        All-In-One Learning Hub
+      </div>
+
+      <h1 class="hero-heading">
+        One Platform for <span class="highlight">Computer Science</span> Students
+      </h1>
+
+      <p class="hero-subheading">
+        Access Syllabus, Notes, PYQs, Question Bank, and Resources in one place. Engineered for university success and technical preparation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#bento-explore" class="btn btn-primary hero-btn-primary">
+          <span>Explore Features</span>
+          <i class="fa-solid fa-arrow-right btn-arrow"></i>
+        </a>
+        <a href="#globalsearch" class="btn btn-secondary hero-btn-secondary">
+          <span>Get Started</span>
+          <i class="fa-solid fa-rocket btn-rocket"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Right: Interactive 3D Code Window Illustration -->
+    <div class="hero-illustration">
+      <div class="illustration-glow"></div>
+
+      <!-- 3D Tilt Code Window -->
+      <div class="code-window glass-panel-3d" id="heroCodeWindow">
+        <!-- Glass Shimmer Sweep & Mouse Light Spotlight -->
+        <div class="code-glass-sweep"></div>
+        <div class="code-spotlight-light" id="codeSpotlight"></div>
+
+        <div class="window-header">
+          <div class="window-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="window-title">forsko_for_seeking_knowledge.</span>
+        </div>
+
+        <div class="window-body">
+<pre><code><span class="kwd">class</span> <span class="cls">CS_Student</span> {
+  <span class="kwd">public static void</span> <span class="func">Main</span>() {
+    <span class="kwd">New</span> <span class="typ">Platform</span> forsko = <span class="kwd">For</span> <span class="typ">Seeking</span> <span class="kwd">Knowledge</span>();
+      forsko.<span class="func">GetSyllabus</span>();
+      forsko.<span class="func">GetNotes</span>();
+      forsko.<span class="func">GetPYQs</span>();
+      forsko.<span class="func">GetQuestionBank</span>();
+      forsko.<span class="func">GetSamplePapers</span>();
+        }
+        }
+      </code></pre>
+        </div>
+      </div>
+
+      <!-- Interactive Floating Badges -->
+      <div class="float-badge badge-1">
+        <i class="fa-solid fa-file-lines badge-icon"></i>
+        <span>100% Accurate Notes</span>
+      </div>
+
+      <div class="float-badge badge-2">
+        <i class="fa-solid fa-book-bookmark badge-icon"></i>
+        <span>Verified Syllabus</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+    <!-- Global Search Section -->
+  <!-- ==========================================
+    Forsko - Guaranteed Working Live Search
+    ========================================== -->
+<section class="search-section" id="globalsearch">
+  <div class="search-container">
+    
+    <!-- Section Header -->
+    <div class="search-header">
+      <div class="header-pill-badge">
+        <i class="fa-solid fa-sparkles"></i>
+        <i class="fa-solid fa-magnifying-glass search-icon-sm"></i>
+        <span>Global Search</span>
+      </div>
+      <h2 class="search-heading">Search Resources</h2>
+      <p class="section-subtitle">Find everything you need in one place, effortlessly.</p>
+    </div>
+
+    <!-- Search Bar Card -->
+    <div class="search-card">
+      <i class="fa-solid fa-magnifying-glass search-main-icon"></i>
+      
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search syllabus, notes, PYQs, practical codes..."
+        autocomplete="off"
+        aria-label="Search resources"
+      >
+
+      <!-- Quick Clear Button (Hidden by default) -->
+      <button type="button" id="searchClearBtn" class="search-clear-btn hidden" aria-label="Clear Search">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+
+      <!-- Action Search Button -->
+      <button id="searchBtn" type="button" class="search-button">
+        <span>Search</span>
+        <i class="fa-solid fa-arrow-right search-btn-arrow"></i>
+      </button>
+    </div>
+
+    <!-- Live Glassmorphic Dropdown -->
+    <div id="searchDropdown" class="search-dropdown hidden" role="listbox"></div>
+    
+
+  </div>
+</section>
+<!-- Dropdown Styles -->
+<style>
+  .search-section {
+    position: relative;
+    z-index: 999;
+    padding: 40px 0;
+  }
+
+  .search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    overflow: visible !important;
+  }
+
+  .search-card {
+    background: #FFFFFF;
+    border-radius: 50px;
+    padding: 8px 8px 8px 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 10;
+  }
+
+  .search-icon {
+    color: #64748B;
+    font-size: 1.2rem;
+    margin-right: 14px;
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #0F172A;
+    background: transparent;
+  }
+
+  .search-button {
+    background: #3B82F6;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .search-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 24px;
+    right: 24px;
+    background-color: #1E293B;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999999;
+  }
+
+  #searchDropdown.hidden {
+    display: none !important;
+  }
+
+  .search-empty-state {
+    text-align: center;
+    padding: 16px;
+    color: #94A3B8;
+    font-size: 0.9rem;
+  }
+
+  .search-result-card {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .search-result-card:hover {
+    background: #3B82F6 !important;
+    color: #FFFFFF !important;
+    transform: translateX(4px);
+  }
+  .search-result-card h4 {
+    margin: 0 0 4px 0 !important;
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+  }
+  .search-result-card p {
+    margin: 0 !important;
+    font-size: 0.85rem !important;
+    color: #CBD5E1 !important;
+  }
+  .search-result-card:hover p {
+    color: #E2E8F0 !important;
+  }
+</style>
+
+<!-- Direct Standalone Search Script -->
+<script>
+  (function() {
+    var input = document.getElementById('searchInput');
+    var dropdown = document.getElementById('searchDropdown');
+    var searchBtn = document.getElementById('searchBtn');
+
+    if (!input || !dropdown) return;
+
+    // Search Database
+    var searchDatabase = [
+    // =========================================================
+    // FORSKO
+    // =========================================================
+
+
+    // =========================================================
+    // SYLLABUS
+    // =========================================================
+
+    {
+        title: "B.Sc. Computer Science Syllabus",
+        desc: "Official SGBAU B.Sc. Computer Science curriculum organized year-wise and semester-wise.",
+        category: "Syllabus",
+        year: "All Years",
+        semester: "Semester I to VI",
+        type: "Syllabus",
+        url: "syllabus.html"
+    },
+
+
+    // =========================================================
+    // FIRST YEAR
+    // =========================================================
+
+    {
+        title: "First Year B.Sc. Computer Science",
+        desc: "First Year B.Sc. Computer Science syllabus, subjects, notes, PYQs, question banks and academic resources.",
+        category: "Year",
+        year: "First Year",
+        semester: "Semester I & II",
+        type: "Year Overview",
+        url: "first-year.html"
+    },
+
+
+    // =========================================================
+    // SEMESTER I
+    // =========================================================
+
+    {
+        title: "Semester I",
+        desc: "First Year Semester I of B.Sc. Computer Science including Fundamentals of Computer, Office Automation, ICT Tools, ICT and Business Data Processing.",
+        category: "Semester",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Semester",
+        url: "semester1.html"
+    },
+
+    {
+        title: "Fundamentals of Computer",
+        desc: "First Year Semester I subject covering computer fundamentals, hardware, software, operating systems, memory, number systems, logic gates and basic computer applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Core Subject",
+        url: "sem1-cf.html"
+    },
+
+    {
+        title: "Laboratory on Office Automation Tools",
+        desc: "First Year Semester I practical subject covering Office Automation Tools and practical computer applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Laboratory",
+        url: "semester1.html"
+    },
+
+    {
+        title: "Laboratory on Information Communication Technology Tools",
+        desc: "First Year Semester I laboratory subject covering Information Communication Technology tools and practical applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Laboratory",
+        url: "semester1.html"
+    },
+
+    {
+        title: "Information Communication Technology",
+        desc: "First Year Semester I GOEC subject covering Information Communication Technology concepts, tools and applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester I",
+        type: "GOEC",
+        code: "GOEC 1",
+        url: "semester1.html"
+    },
+
+    {
+        title: "Business Data Processing",
+        desc: "First Year Semester I GOEC subject covering Business Data Processing concepts and applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester I",
+        type: "GOEC",
+        code: "GOEC 2",
+        url: "semester1.html"
+    },
+
+
+    // =========================================================
+    // SEMESTER II
+    // =========================================================
+
+    {
+        title: "Semester II",
+        desc: "First Year Semester II of B.Sc. Computer Science including Programming with C, C Programming Lab, E-Commerce, Web Publishing, E-Business and Website Design Principle.",
+        category: "Semester",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Semester",
+        url: "semester2.html"
+    },
+
+    {
+        title: "Programming with C",
+        desc: "First Year Semester II programming subject covering C programming, loops, functions, arrays, pointers, structures and fundamental programming concepts.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Programming",
+        url: "semester2.html"
+    },
+
+    {
+        title: "Laboratory on Programming with C",
+        desc: "First Year Semester II practical subject containing C programs, executable programs, outputs, practical exercises and viva questions.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Laboratory",
+        url: "semester2.html"
+    },
+
+    {
+        title: "Laboratory on E-Commerce",
+        desc: "First Year Semester II VSC laboratory covering E-Commerce concepts and practical activities.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "VSC Laboratory",
+        code: "VSC",
+        url: "semester2.html"
+    },
+
+    {
+        title: "Laboratory on Web Publishing",
+        desc: "First Year Semester II SEC laboratory covering Web Publishing, HTML, CSS and basic web development.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "SEC Laboratory",
+        code: "SEC",
+        url: "semester2.html"
+    },
+
+    {
+        title: "E-Business",
+        desc: "First Year Semester II GOEC subject covering E-Business concepts, online business and electronic business applications.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "GOEC",
+        code: "GOEC 1",
+        url: "semester2.html"
+    },
+
+    {
+        title: "Website Design Principle",
+        desc: "First Year Semester II GOEC subject covering website design principles and fundamental web design concepts.",
+        category: "Subject",
+        year: "First Year",
+        semester: "Semester II",
+        type: "GOEC",
+        code: "GOEC 2",
+        url: "semester2.html"
+    },
+
+
+    // =========================================================
+    // SECOND YEAR
+    // =========================================================
+
+    {
+        title: "Second Year B.Sc. Computer Science",
+        desc: "Second Year B.Sc. Computer Science syllabus, subjects and academic resources for Semester III and Semester IV.",
+        category: "Year",
+        year: "Second Year",
+        semester: "Semester III & IV",
+        type: "Year Overview",
+        url: "second-year.html"
+    },
+
+
+    // =========================================================
+    // SEMESTER III
+    // =========================================================
+
+    {
+        title: "Semester III",
+        desc: "Second Year Semester III of B.Sc. Computer Science including Software Engineering, Java, Physics, Indian Knowledge System and Practical.",
+        category: "Semester",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Semester",
+        url: "semester3.html"
+    },
+
+    {
+        title: "Software Engineering",
+        desc: "Second Year Semester V subject covering software engineering concepts, SDLC, software development models, requirements, risk management, design and testing.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester V",
+        type: "Theory",
+        url: "semester5.html"
+    },
+
+    {
+        title: "Java",
+        desc: "Second Year Semester V programming subject covering Java fundamentals, JVM, JDK, JRE, data types, operators, program structure, decision making and looping.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester V",
+        type: "Programming",
+        url: "semester5.html"
+    },
+
+    {
+        title: "Advanced Python Programming",
+        desc: "Second Year Semester V subject covering advanced Python programming concepts, libraries, and applications.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester V",
+        type: "Programming",
+        url: "semester5.html"
+    },
+
+    {
+        title: "Indian Knowledge System",
+        desc: "Second Year Semester III Indian Knowledge System subject covering concepts and traditional knowledge systems.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Theory",
+        code: "IKS",
+        url: "semester3.html"
+    },
+
+    {
+        title: "Semester III Practical",
+        desc: "Second Year Semester III practical component for B.Sc. Computer Science students.",
+        category: "Practical",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Practical",
+        url: "semester3.html"
+    },
+
+    {
+        title: "Data Structure HandWritten Notes",
+        desc: "B.Sc. Computer Science Data Structure subject covering arrays, linked lists, stacks, queues, trees, searching and sorting concepts.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Theory",
+        url: "sem3-ds.html"
+    },
+
+    {
+        title: "RDBMS HandWritten Notes",
+        desc: "Relational Database Management System subject covering database concepts, relational model, SQL, constraints, procedures, functions, triggers, backup and recovery.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Database",
+        url: "sem3-rdbms.html"
+    },
+
+
+    // =========================================================
+    // SEMESTER IV
+    // =========================================================
+
+    {
+        title: "Semester IV",
+        desc: "Second Year Semester IV of B.Sc. Computer Science including Opps with C++, Python, Computer Networks, Computer Organization",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Semester",
+        url: "semester4.html"
+    },
+
+    {
+        title: "Data Structure",
+        desc: "Second Year Semester IV subject covering data structures, arrays, linked lists, stacks, queues, trees, searching and sorting.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Theory",
+        url: "semester3.html"
+    },
+
+    {
+        title: "Python",
+        desc: "Second Year Semester IV programming subject covering Python programming concepts and problem solving.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Programming",
+        url: "semester4.html"
+    },
+
+    {
+        title: "Computer Organization",
+        desc: "Second Year Semester IV subject covering computer organization and architecture concepts.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Theory",
+        url: "semester4.html"
+    },
+
+    {
+        title: "E-Commerce",
+        desc: "Second Year Semester IV subject covering E-Commerce concepts, electronic transactions and online business.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Theory",
+        url: "semester4.html"
+    },
+
+    {
+        title: "Semester IV Practical",
+        desc: "Second Year Semester IV practical component for B.Sc. Computer Science students.",
+        category: "Practical",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Practical",
+        url: "semester4.html"
+    },
+
+
+    // =========================================================
+    // THIRD YEAR
+    // =========================================================
+
+    {
+        title: "Third Year B.Sc. Computer Science",
+        desc: "Third Year B.Sc. Computer Science syllabus, subjects and academic resources for Semester V and Semester VI.",
+        category: "Year",
+        year: "Third Year",
+        semester: "Semester V & VI",
+        type: "Year Overview",
+        url: "third-year.html"
+    },
+
+    {
+        title: "Semester V",
+        desc: "Third Year Semester V B.Sc. Computer Science syllabus and academic resources.",
+        category: "Semester",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Semester",
+        url: "semester5.html"
+    },
+
+    {
+        title: "Semester VI",
+        desc: "Third Year Semester VI B.Sc. Computer Science syllabus and academic resources.",
+        category: "Semester",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Semester",
+        url: "semester6.html"
+    },
+
+
+    // =========================================================
+    // NOTES
+    // =========================================================
+
+    {
+        title: "B.Sc. Computer Science Notes",
+        desc: "Complete B.Sc. Computer Science study notes organized by year and semester.",
+        category: "Notes",
+        year: "All Years",
+        semester: "Semester I to VI",
+        type: "Study Material",
+        url: "notes.html"
+    },
+
+    {
+        title: "First Year Notes",
+        desc: "First Year B.Sc. Computer Science notes for Semester I and Semester II subjects.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester I & II",
+        type: "Study Material",
+        url: "notes-first-year.html"
+    },
+
+    {
+        title: "Second Year Notes",
+        desc: "Second Year B.Sc. Computer Science notes for Semester III and Semester IV subjects.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III & IV",
+        type: "Study Material",
+        url: "notes-second-year.html"
+    },
+
+    {
+        title: "Semester 1 Notes",
+        desc: "First Year Semester I subject-wise B.Sc. Computer Science notes.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Study Material",
+        url: "notes-semester1.html"
+    },
+
+    {
+        title: "Semester 2 Notes",
+        desc: "First Year Semester II subject-wise B.Sc. Computer Science notes.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Study Material",
+        url: "notes-semester2.html"
+    },
+
+    {
+        title: "Semester 3 Notes",
+        desc: "Second Year Semester III subject-wise B.Sc. Computer Science notes.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Study Material",
+        url: "notes-semester3.html"
+    },
+
+
+    // =========================================================
+    // PYQs
+    // =========================================================
+
+    {
+        title: "Previous Year Question Papers",
+        desc: "B.Sc. Computer Science Previous Year Question Papers organized for examination preparation.",
+        category: "PYQs",
+        year: "All Years",
+        semester: "Semester I to VI",
+        type: "Question Papers",
+        url: "pyqs.html"
+    },
+
+    {
+        title: "First Year PYQs",
+        desc: "First Year B.Sc. Computer Science Previous Year Question Papers for Semester I and II.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester I & II",
+        type: "Question Papers",
+        url: "pyqs-first-year.html"
+    },
+
+    {
+        title: "Semester 1 PYQs",
+        desc: "First Year Semester I B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Question Papers",
+        url: "pyqs-semester1.html"
+    },
+
+
+    // =========================================================
+    // QUESTION BANK
+    // =========================================================
+
+    {
+        title: "B.Sc. Computer Science Question Bank",
+        desc: "Important, expected and unit-wise questions for B.Sc. Computer Science examination preparation.",
+        category: "Question Bank",
+        year: "All Years",
+        semester: "Semester I to VI",
+        type: "Question Bank",
+        url: "question-bank.html"
+    },
+
+    {
+        title: "First Year Question Bank",
+        desc: "First Year B.Sc. Computer Science important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester I & II",
+        type: "Question Bank",
+        url: "qb-first-year.html"
+    },
+
+    {
+        title: "Semester 1 Question Bank",
+        desc: "First Year Semester I unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Question Bank",
+        url: "qb-semester1.html"
+    },
+
+
+    // =========================================================
+    // PAPER PATTERN
+    // =========================================================
+
+    {
+        title: "Official Paper Pattern",
+        desc: "B.Sc. Computer Science examination paper patterns, marks distribution and question paper schemes.",
+        category: "Paper Pattern",
+        year: "All Years",
+        semester: "Semester I to VI",
+        type: "Examination",
+        url: "pp-first-year.html"
+    },
+
+    {
+        title: "First Year Paper Pattern",
+        desc: "First Year B.Sc. Computer Science examination paper pattern and marks distribution.",
+        category: "Paper Pattern",
+        year: "First Year",
+        semester: "Semester I & II",
+        type: "Examination",
+        url: "pp-first-year.html"
+    },
+
+    {
+        title: "Semester 1 Paper Pattern",
+        desc: "First Year Semester I B.Sc. Computer Science examination paper pattern and marks distribution.",
+        category: "Paper Pattern",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Examination",
+        url: "pp-semester1.html"
+    }
+
+];
+
+    // Live Input Event
+    input.addEventListener('input', function() {
+      var query = input.value.trim().toLowerCase();
+      
+      if (!query) {
+        dropdown.classList.add('hidden');
+        dropdown.innerHTML = '';
+        return;
+      }
+
+      var matches = searchDatabase.filter(function(item) {
+        return item.title.toLowerCase().indexOf(query) !== -1 || 
+              item.desc.toLowerCase().indexOf(query) !== -1;
+      });
+
+      dropdown.innerHTML = '';
+
+      if (matches.length === 0) {
+        dropdown.innerHTML = '<div style="text-align:center; padding: 16px; color: #94A3B8; font-size: 0.9rem;">No matching material found</div>';
+      } else {
+        matches.forEach(function(item) {
+          var card = document.createElement('a');
+          card.href = item.url;
+          card.className = 'search-result-card';
+          card.innerHTML = '<h4>' + item.title + '</h4><p>' + item.desc + '</p>';
+          dropdown.appendChild(card);
+        });
+      }
+
+      dropdown.classList.remove('hidden');
+    });
+
+    // Close on Outside Click
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+
+    // Button Click Search First Match
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function() {
+        var query = input.value.trim().toLowerCase();
+        if (!query) return;
+        var firstMatch = searchDatabase.find(function(item) {
+          return item.title.toLowerCase().indexOf(query) !== -1 || item.desc.toLowerCase().indexOf(query) !== -1;
+        });
+        if (firstMatch) {
+          window.location.href = firstMatch.url;
+        }
+      });
+    }
+  })();
+</script>
+
+<!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+   <!-- Apple-Style Bento Grid Section -->
+   <!-- ==========================================
+     Forsko - Hyper-Interactive Bento Grid Section
+     ========================================== -->
+<section class="bento-section" id="bento-explore">
+  <!-- Ambient Section Glow -->
+  <div class="bento-ambient-glow"></div>
+
+  <div class="section-container">
+    
+    <!-- Section Header -->
+    <div class="section-header bento-header">
+      <div class="header-pill-badge">
+        <i class="fa-solid fa-sparkles"></i>
+        <span>Complete Ecosystem</span>
+      </div>
+      <h2 class="bento-main-title">Explore <span class="title-gradient">Forsko</span></h2>
+      <p class="section-subtitle"><b>Everything you need to master your B.Sc. Computer Science degree.</b></p>
+    </div>
+
+    <!-- Bento Grid (3-Column Layout) -->
+    <div class="bento-grid">
+      
+      <!-- 1. Syllabus (Span 2) -->
+      <a href="syllabus.html" class="bento-card bento-span-2" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-book-bookmark bento-icon"></i>
+          </div>
+          <span class="bento-badge">Official Syllabus</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">Syllabus</h3>
+          <p class="bento-desc">Official SGBAU B.Sc. Computer Science unit-wise syllabus breakdown, course outcomes, and mark distribution schemes.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">View Syllabus</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+      <!-- 2. Notes (Span 1) -->
+      <a href="notes.html" class="bento-card bento-span-1" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-file-lines bento-icon"></i>
+          </div>
+          <span class="bento-badge">Study Material</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">Notes</h3>
+          <p class="bento-desc">Handcrafted, Infographics, exam-focused chapter notes and quick revision summaries.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">Access Notes</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+      <!-- 3. PYQs (Span 1) -->
+      <a href="pyqs.html" class="bento-card bento-span-1" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-clock-rotate-left bento-icon"></i>
+          </div>
+          <span class="bento-badge">Archives</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">PYQs</h3>
+          <p class="bento-desc">Previous Year Question papers sorted semester-wise from 2024 to 2026.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">Access PYQs</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+      <!-- 4. Question Bank (Span 2) -->
+      <a href="question-bank.html" class="bento-card bento-span-2" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-database bento-icon"></i>
+          </div>
+          <span class="bento-badge">Exam Prep</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">Question Bank</h3>
+          <p class="bento-desc">Curated unit-wise important long answer questions, short notes, and expected university examination questions.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">Explore Questions</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+      <!-- 5. Paper Pattern (Span 2) -->
+      <a href="paper-patterns.html" class="bento-card bento-span-2" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-chart-pie bento-icon"></i>
+          </div>
+          <span class="bento-badge">Blueprint</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">Paper Pattern</h3>
+          <p class="bento-desc">Official SGBAU exam mark distribution schemes and sample question papers.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">Check Pattern</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+      <!-- 6. Member's Information (Span 1) -->
+      <a href="contact.html" class="bento-card bento-span-1" data-tilt>
+        <div class="bento-glass-glow"></div>
+        <div class="bento-shine-sweep"></div>
+        <div class="bento-card-spotlight"></div>
+
+        <div class="bento-card-top">
+          <div class="bento-icon-wrapper">
+            <i class="fa-solid fa-user bento-icon"></i>
+          </div>
+          <span class="bento-badge">Member's Info</span>
+        </div>
+        <div class="bento-card-body">
+          <h3 class="bento-title">Member's Information</h3>
+          <p class="bento-desc">Access detailed information about our members, their expertise, and contributions.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span class="bento-action-text">View Details</span>
+          <i class="fa-solid fa-arrow-right bento-arrow"></i>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+<!-- ==========================================
+     Forsko - Latest Updates Grid Section
+     ========================================== -->
+<section class="updates-section" id="latest-updates">
+  <div class="updates-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="sub-badge">Real-Time Feed</span>
+      <h2>Latest Updates</h2>
+      <p class="section-subtitle">Stay informed with the newest study notes, past papers, and university curriculum changes.</p>
+    </div>
+
+    <!-- Updates Horizontal Grid (3 Cards Per Row) -->
+    <div class="updates-grid">
+
+      
+
+      <!-- Item 1: Notes -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-new">
+            <span class="badge-dot"></span> New
+          </span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> Few days ago
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Sem - I & III Syllabus</h3>
+          <p class="update-desc">Latest syllabus for Semester I and III, official and up-to-date.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="syllabus.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Item 1: Notes -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-new">
+            <span class="badge-dot"></span> New
+          </span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> Few weeks ago
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Sem - I Notes</h3>
+          <p class="update-desc">Comprehensive notes for Semester I subjects, including handwritten and infographic-based explanations.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="notes-semester1.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Item 1: Notes -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-new">
+            <span class="badge-dot"></span> New
+          </span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> 2 days ago
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Sem - III Notes</h3>
+          <p class="update-desc">Comprehensive notes for Semester III subjects, including detailed explanations and solved examples.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="notes-semester3.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 2: PYQs -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-new">
+            <span class="badge-dot"></span> NEW
+          </span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> Yesterday
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Semester I & III PYQs</h3>
+          <p class="update-desc">Official SGBAU Summer & Winter question papers (2024–2026) sorted unit-wise with solution keys.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="pyqs.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 3: Question Bank -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-updated">UPDATED</span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> 1 day ago
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Question Bank Updated</h3>
+          <p class="update-desc">New question banks added for better understanding and exam preparation.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="question-bank.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Item 4: Paper Pattern -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-announcement">BLUEPRINT</span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i> 5 days ago
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">B.Sc. Paper Patterns Released</h3>
+          <p class="update-desc">Official SGBAU exam mark distribution schemes, unit weightage, and model sample question papers.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="paper-patterns.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    
+
+    </div>
+  </div>
+</section>
+
+<!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+<!-- ==========================================
+     Forsko - Interactive Statistics Section
+     ========================================== -->
+
+<section class="stats-section">
+
+<div class="section-header">
+      <span class="sub-badge">Resources Count</span>
+      <h2>Number of Resources</h2>
+    </div>
+
+  <!-- Ambient Section Glow -->
+
+
+  <div class="stats-ambient-glow"></div>
+
+  
+
+  <div class="stats-container">
+    
+    <!-- Stat Card 1: Semesters -->
+    <div class="stat-card glass-panel-3d" data-tilt>
+      <div class="stat-shine-sweep"></div>
+      <div class="stat-spotlight"></div>
+      <div class="stat-top-border"></div>
+
+      <div class="stat-icon-wrapper">
+        <i class="fa-solid fa-book-open stat-icon"></i>
+        <div class="icon-aura"></div>
+      </div>
+      <div class="stat-number" data-target="6">0+</div>
+      <div class="stat-label">Semesters</div>
+    </div>
+
+    <!-- Stat Card 2: Subjects -->
+    <div class="stat-card glass-panel-3d" data-tilt>
+      <div class="stat-shine-sweep"></div>
+      <div class="stat-spotlight"></div>
+      <div class="stat-top-border"></div>
+
+      <div class="stat-icon-wrapper">
+        <i class="fa-solid fa-graduation-cap stat-icon"></i>
+        <div class="icon-aura"></div>
+      </div>
+      <div class="stat-number" data-target="50">0+</div>
+      <div class="stat-label">Subjects</div>
+    </div>
+
+    <!-- Stat Card 3: Notes -->
+    <div class="stat-card glass-panel-3d" data-tilt>
+      <div class="stat-shine-sweep"></div>
+      <div class="stat-spotlight"></div>
+      <div class="stat-top-border"></div>
+
+      <div class="stat-icon-wrapper">
+        <i class="fa-solid fa-file-lines stat-icon"></i>
+        <div class="icon-aura"></div>
+      </div>
+      <div class="stat-number" data-target="100">0+</div>
+      <div class="stat-label">Notes</div>
+    </div>
+
+    <!-- Stat Card 4: PYQs -->
+    <div class="stat-card glass-panel-3d" data-tilt>
+      <div class="stat-shine-sweep"></div>
+      <div class="stat-spotlight"></div>
+      <div class="stat-top-border"></div>
+
+      <div class="stat-icon-wrapper">
+        <i class="fa-solid fa-clock-rotate-left stat-icon"></i>
+        <div class="icon-aura"></div>
+      </div>
+      <div class="stat-number" data-target="20">0+</div>
+      <div class="stat-label">PYQs</div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+    <!-- About Forsko Section -->
+   <!-- ==========================================
+     Forsko - Interactive About Section
+     ========================================== -->
+<section class="about-section" id="about">
+  <!-- Ambient Aurora Background Glow -->
+  <div class="about-ambient-glow"></div>
+
+  <div class="about-container">
+    
+    <!-- Left Content Column -->
+    <div class="about-content">
+      <div class="sub-badge-wrapper">
+        <span class="sub-badge"><i class="fa-solid fa-sparkles"></i> About Forsko</span>
+      </div>
+
+      <h2 class="about-heading">
+        Created by Forsko Developers, <span class="title-gradient">Built for CS Undergrads</span>
+      </h2>
+
+      <p class="about-text">
+        Forsko is a centralized learning repository designed to streamline the academic journey of Computer Science students. We solve the problem of scattered notes, unverified lab solutions, and missing past papers.
+      </p>
+      <p class="about-text">
+        Our platform ensures that whether you're revising algorithms a night before exams or building your first practical project, you have structured, reliable materials in one place.
+      </p>
+
+      <!-- Interactive Highlight Cards -->
+      <div class="about-highlights">
+        
+        <!-- Highlight Item 1 -->
+        <div class="highlight-item glass-chip">
+          <div class="highlight-icon-box">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="highlight-info">
+            <h4>Verified Quality</h4>
+            <p>All notes and PYQ solutions are double-checked for technical accuracy.</p>
+          </div>
+        </div>
+
+        <!-- Highlight Item 2 -->
+        <div class="highlight-item glass-chip">
+          <div class="highlight-icon-box">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="highlight-info">
+            <h4>Instant Access</h4>
+            <p>No paywalls or hidden subscriptions—100% free open access.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive 3D Visual Box -->
+    <div class="about-card-visual glass-panel-3d" id="aboutVisualCard">
+      <!-- Glass reflection beam sweep -->
+      <div class="card-reflection-sweep"></div>
+      <div class="card-spotlight-light" id="aboutSpotlight"></div>
+
+      <!-- Floating Feature Badges -->
+      <div class="about-float-badge badge-top-right">
+        <i class="fa-solid fa-graduation-cap"></i> SGBAU CS Curriculum
+      </div>
+      <div class="about-float-badge badge-bottom-left">
+        <i class="fa-solid fa-circle-check"></i> 100% Free Access
+      </div>
+
+      <div class="visual-box">
+        <div class="main-icon-wrapper">
+          <i class="fa-solid fa-laptop-code main-icon"></i>
+          <div class="icon-aura-glow"></div>
+        </div>
+        <h3>Simplify Your Computer Science Degree</h3>
+        <p>Join thousands of Computer Science students accelerating their semester preparation with Forsko.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Glowing Line Divider -->
+<div class="glowing-divider">
+  <div class="divider-line"></div>
+  <div class="glowing-node"></div>
+</div>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="contact">
+    <div class="footer-container">
+      <!-- Footer About -->
+      <div class="footer-col brand-col">
+        <a href="index.html" class="logo footer-logo">
+          <img src="forsko-logo.png" alt="Forsko Logo" class="logo-image">
+          <span>Forsko</span>
+        </a>
+        <p>
+          The ultimate central hub for Computer Science academic study materials, practical code labs, and semester exam prep.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="syllabus.html">Syllabus</a></li>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="pyqs.html">PYQs</a></li>
+          <li><a href="question-bank.html">Question Bank</a></li>
+          <li><a href="paper-patterns.html">Paper Patterns</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-envelope"></i> forskodev@gmail.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> Shri Shivaji College of Arts, Commerce and Science, Akola</li>
+          <li><i class="fa-solid fa-globe"></i> forsko-web.github.io/Forsko.in/</li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-col">
+        <h3>Social & Community</h3>
+        <a href="https://www.instagram.com/forsko_web/" target="_blank" rel="noopener" class="github-btn">
+          <i class="fa-brands fa-instagram"></i> Visit Instagram
+        </a>
+        <br><br>
+        <a href="https://whatsapp.com/channel/0029VbCy38i6GcGKKc4EAn0q" target="_blank" rel="noopener" class="github-btn">
+          <i class="fa-brands fa-whatsapp"></i> Visit Whatsapp
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Forsko. All rights reserved. Designed for Computer Science Students.</p>
+    </div>
+  </footer>
+  
+
+<!-- ==========================================
+     Forsko Floating Action Button (FAB)
+     ========================================== -->
+<div class="fab-container" id="fabContainer">
+  <!-- Glassmorphism Expandable Menu -->
+  <div class="fab-menu" id="fabMenu" role="menu" aria-hidden="true">
+    
+    <!-- 7. Back to Top -->
+    <button class="fab-menu-item" id="fabBackToTop" type="button" role="menuitem" title="Back to Top">
+      <span class="fab-item-label">Back to Top</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-arrow-up"></i></span>
+    </button>
+
+    <!-- 6. Feedback -->
+    <button class="fab-menu-item" id="fabFeedback" type="button" role="menuitem" title="Feedback">
+      <span class="fab-item-label">Feedback</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-comment-dots"></i></span>
+    </button>
+
+
+    <!-- 4. PYQs -->
+    <a href="pyqs.html" class="fab-menu-item" role="menuitem" title="PYQs">
+      <span class="fab-item-label">PYQs</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
+    </a>
+
+    <!-- 3. Notes -->
+    <a href="notes.html" class="fab-menu-item" role="menuitem" title="Notes">
+      <span class="fab-item-label">Notes</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-file-lines"></i></span>
+    </a>
+
+    <!-- 2. Syllabus -->
+    <a href="syllabus.html" class="fab-menu-item" role="menuitem" title="Syllabus">
+      <span class="fab-item-label">Syllabus</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-book-bookmark"></i></span>
+    </a>
+    
+
+    <a href="#latest-updates" class="fab-menu-item" id="fabFeed" role="menuitem" title="Latest Updates">
+      <span class="fab-item-label">Latest Updates</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-bolt"></i></span>
+    </a>
+
+    <!-- 1. Search -->
+    <button class="fab-menu-item" id="fabSearch" type="button" role="menuitem" title="Search">
+      <span class="fab-item-label">Search</span>
+      <span class="fab-item-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </button>
+  </div>
+
+  <!-- Main Blue Circular Trigger Button -->
+  <button class="fab-main-btn" id="fabMainBtn" type="button" aria-label="Toggle Quick Actions Menu" aria-expanded="false">
+    <i class="fa-solid fa-layer-group fab-icon-open"></i>
+    <i class="fa-solid fa-xmark fab-icon-close"></i>
+  </button>
+</div>
+
+  <!-- Unified Main JavaScript -->
+  <script src="script.js"></script>
+  <script src="command-palette.js"></script>
+</body>
+</html>
