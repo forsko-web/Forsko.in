@@ -1,3 +1,26 @@
+
+/* ==========================================
+   Forsko - Mobile Screen Overflow Prevention
+   ========================================== */
+html, body {
+  overflow-x: hidden !important; /* Horizontally bahar jane se rokega */
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Force Box Sizing for All Elements */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* Images & Media max-width Fix */
+img, video, iframe, svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
 /* ==========================================================================
    Forsko - Master CSS Stylesheet
    Theme: Dark Slate (#0F172A) | Sky Blue (#3B82F6) | Accent Cyan (#60A5FA)
@@ -2339,6 +2362,8 @@ mark.search-highlight {
 }
 
 
+
+
 /* ==========================================================================
    Forsko - Interactive Statistics Section Styles
    Features: Glassmorphism, 3D Parallax Tilt, Ease-Out Counters & Neon Glow
@@ -2836,3 +2861,75 @@ mark.search-highlight {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================
+   Mobile Screen Responsiveness Fix (Max Width 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  
+  /* All Main Containers Mobile Fit */
+  .nav-container,
+  .hero-container,
+  .section-container,
+  .search-container,
+  .updates-container,
+  .about-container,
+  .footer-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: hidden;
+  }
+
+  /* Force Single Column for Grids so Cards don't spill out */
+  .bento-grid,
+  .updates-grid,
+  .stats-container {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+
+  .bento-span-1,
+  .bento-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  /* Fix Hero Section Typography & Code Window for Mobile */
+  .hero-heading {
+    font-size: 2rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .code-window {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .window-body pre {
+    white-space: pre-wrap !important; /* Code text screen se bahar nahi jayega */
+    word-break: break-word !important;
+  }
+
+  /* Fix Floating Badges going outside screen */
+  .float-badge {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 12px auto !important;
+    display: inline-flex !important;
+  }
+
+  /* Search Card Mobile Fit */
+  .search-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+/* ==========================================================================
+   End of Forsko Stylesheet
+   ========================================================================== */
