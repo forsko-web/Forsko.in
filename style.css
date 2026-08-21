@@ -2930,6 +2930,125 @@ mark.search-highlight {
     max-width: 100% !important;
   }
 }
+
+/* ==========================================================================
+   PERFECT MOBILE SCREEN FIX (Prevents Right Side Text Cutting)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+
+  /* 1. Force Screen Width to 100% (No horizontal stretch) */
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative;
+  }
+
+  /* 2. Fix Hero Section: Stacks Text on Top, Code Window on Bottom */
+  .hero {
+    padding: 30px 16px 50px 16px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-container {
+    display: flex !important;
+    flex-direction: column !important; /* Side-by-side se hata kar upar-niche karega */
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 30px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 3. Hero Badge & Headings (Text size fit inside mobile) */
+  .hero-badge {
+    max-width: 90% !important;
+    white-space: normal !important;
+    font-size: 0.8rem !important;
+    margin: 0 auto 16px auto !important;
+  }
+
+  .hero-heading {
+    font-size: 1.85rem !important; /* Ab "Computer Science Students" poora aayega */
+    line-height: 1.3 !important;
+    margin-bottom: 14px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+  }
+
+  .hero-subheading {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 4px !important;
+  }
+
+  /* 4. Full Width Buttons */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .hero-buttons .btn {
+    width: 100% !important;
+    padding: 13px 20px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* 5. Fix Code Window & Floating Badges */
+  .hero-illustration {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+  }
+
+  .code-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important; /* 3D tilt band karega taaki bahar na bhage */
+  }
+
+  .window-body {
+    padding: 14px !important;
+    overflow-x: auto !important;
+  }
+
+  .window-body pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Floating Badges ko screen ke andar set karega */
+  .float-badge {
+    position: static !important;
+    margin: 8px auto 0 auto !important;
+    transform: none !important;
+    animation: none !important;
+    display: inline-flex !important;
+  }
+
+  .illustration-glow {
+    display: none !important; /* Phone par blur overflow hatayega */
+  }
+}
 /* ==========================================================================
    End of Forsko Stylesheet
    ========================================================================== */
