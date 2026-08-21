@@ -15,6 +15,8 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <!-- Forsko Splash Screen Stylesheet -->
+<link rel="stylesheet" href="splash-screen.css">
   <style>
     /* moved inline styles from HTML to CSS file scope */
     .sub-badge.center { display: block; text-align: center; }
@@ -1576,8 +1578,102 @@
   </button>
 </div>
 
+
+
+
+
+<!-- ================================================== -->
+<!-- FORSKO SUPREME "LAST LEVEL" CINEMATIC SPLASH       -->
+<!-- ================================================== -->
+<div id="forskoSplashScreen" class="forsko-splash-screen" aria-hidden="false">
+  
+  <!-- Interactive Constellation, Matrix & Hex Grid Canvas -->
+  <canvas id="splashCanvas" class="splash-canvas"></canvas>
+  <div class="splash-ambient-mesh"></div>
+  <div class="splash-hex-grid"></div>
+  <div class="splash-lens-flare" id="splashLensFlare"></div>
+
+  <!-- Top Controls: Time Greeting & Controls -->
+  <div class="splash-top-bar">
+    <div class="splash-greeting-wrapper">
+      <span class="splash-time-greeting" id="splashTimeGreeting">⚡ Welcome, Computer Science Scholar</span>
+    </div>
+    <div class="splash-top-right">
+      <button type="button" class="splash-icon-btn" id="splashAudioBtn" title="Toggle Audio Effect">
+        <i class="fa-solid fa-volume-xmark" id="splashAudioIcon"></i>
+      </button>
+      <button type="button" class="splash-skip-btn" id="splashSkipBtn">
+        <span>Bypass Intro</span>
+        <i class="fa-solid fa-angles-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- 3D Mouse Parallax Container -->
+  <div class="forsko-splash-content" id="splashTiltContent">
+    
+    <!-- Logo Stage with Hex Shield & Energy Beams -->
+    <div class="forsko-splash-logo-container" id="splashLogoClickTarget" title="Click for Particle Supernova!">
+      <div class="splash-energy-beam"></div>
+      <div class="splash-hex-shield"></div>
+      <div class="splash-ring ring-outer"></div>
+      <div class="splash-ring ring-middle"></div>
+      <div class="splash-ring ring-inner"></div>
+      <div class="forsko-splash-glow" id="splashDynamicGlow"></div>
+      <img src="forsko-logo.png" alt="Forsko Logo" class="forsko-splash-logo" id="forskoSplashLogo" onerror="this.src='FORSKO2.png'">
+    </div>
+
+    <!-- 3D Letter Flip Title -->
+    <style>
+      .forsko-splash-title .splash-letter:nth-child(1) { --i: 1; }
+      .forsko-splash-title .splash-letter:nth-child(2) { --i: 2; }
+      .forsko-splash-title .splash-letter:nth-child(3) { --i: 3; }
+      .forsko-splash-title .splash-letter:nth-child(4) { --i: 4; }
+      .forsko-splash-title .splash-letter:nth-child(5) { --i: 5; }
+      .forsko-splash-title .splash-letter:nth-child(6) { --i: 6; }
+    </style>
+    <h1 class="forsko-splash-title" aria-label="FORSKO">
+      <span class="splash-letter">F</span>
+      <span class="splash-letter">O</span>
+      <span class="splash-letter">R</span>
+      <span class="splash-letter">S</span>
+      <span class="splash-letter">K</span>
+      <span class="splash-letter">O</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="forsko-splash-subtitle">Your Personal Academic Companion</p>
+
+    <!-- Cyber Terminal Command Feed -->
+    <div class="splash-terminal-line">
+      <span class="terminal-prompt">&gt;</span>
+      <span class="splash-status-text" id="splashStatusText">forsko --init --sgbau</span>
+      <span class="terminal-cursor">_</span>
+    </div>
+
+    <!-- Percentage Counter Header -->
+    <div class="splash-status-wrapper">
+      <span class="splash-module-tag" id="splashModuleTag">SYS_BOOT</span>
+      <span class="splash-percent-text" id="splashPercentText">0%</span>
+    </div>
+
+    <!-- Laser Progress Line -->
+    <div class="forsko-splash-loader">
+      <div class="forsko-splash-progress-bar" id="splashProgressBar">
+        <div class="splash-progress-head"></div>
+      </div>
+    </div>
+
+    <!-- Academic Tag Badge -->
+    <div class="splash-badge-tag">FORSKO • Personal • Academic Portal</div>
+
+  </div>
+</div>
+
   <!-- Unified Main JavaScript -->
   <script src="script.js"></script>
   <script src="command-palette.js"></script>
+  <!-- Forsko Splash Screen Script -->
+<script src="splash-screen.js"></script>
 </body>
 </html>
