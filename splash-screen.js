@@ -52,14 +52,11 @@
         <div class="splash-lens-flare" id="splashLensFlare"></div>
         <div class="splash-top-bar">
           <div class="splash-greeting-wrapper">
-            <span class="splash-time-greeting" id="splashTimeGreeting">⚡ Welcome, Computer Science Scholar</span>
           </div>
           <div class="splash-top-right">
-            <button type="button" class="splash-icon-btn" id="splashAudioBtn" title="Toggle Audio Effect">
-              <i class="fa-solid fa-volume-xmark" id="splashAudioIcon"></i>
             </button>
             <button type="button" class="splash-skip-btn" id="splashSkipBtn">
-              <span>Bypass Intro</span>
+              <span>Skip Intro</span>
               <i class="fa-solid fa-angles-right"></i>
             </button>
           </div>
