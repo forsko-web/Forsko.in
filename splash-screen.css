@@ -196,8 +196,8 @@
    -------------------------------------------------------------------------- */
 .forsko-splash-logo-container {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,8 +226,8 @@
 }
 
 .forsko-splash-logo {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   position: relative;
   z-index: 3;
