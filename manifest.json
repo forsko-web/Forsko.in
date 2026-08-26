@@ -1,0 +1,16 @@
+{
+  "name": "Forsko",
+  "short_name": "Forsko",
+  "description": "For Seeking Knowledge | Computer Science Learning Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "forsko-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
