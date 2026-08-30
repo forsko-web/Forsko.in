@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initFAB();
   initStudyTips();
-  initSearchDropdown();
   initCounterStats();
 });
 
@@ -325,3 +324,4 @@ function initCounterStats() {
 
 // Call initializer
 document.addEventListener('DOMContentLoaded', initCounterStats);
+
