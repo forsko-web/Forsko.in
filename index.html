@@ -1874,9 +1874,33 @@
         dropdown.innerHTML = '<div style="text-align:center; padding: 24px; color: #94A3B8;"><i class="fa-solid fa-ghost" style="font-size: 2rem; color:#3B82F6; margin-bottom:10px;"></i><br><b style="color:#FFF;">No material found</b><br>Try searching something else like "Notes" or "PYQs"</div>';
       } else {
         matches.forEach(function(item) {
-          var card = document.createElement('a');
-          card.href = item.url;
-          card.className = 'search-result-card';
+          matches.forEach(function(item) {
+    var card = document.createElement('a');
+
+    card.href = item.url;
+    card.className = 'search-result-card';
+
+    var regex = new RegExp(`(${query})`, "gi");
+
+    var highlightedTitle = item.title.replace(
+        regex,
+        "<span style='color: #60A5FA;'>$1</span>"
+    );
+
+    card.innerHTML =
+        '<h4>' + highlightedTitle + '</h4>' +
+        '<p>' + item.desc + '</p>';
+
+    card.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    card.addEventListener('touchend', function(e) {
+        e.stopPropagation();
+    });
+
+    dropdown.appendChild(card);
+});
           // Query Highlight (Bold karna matching text ko)
           var regex = new RegExp(`(${query})`, "gi");
           var highlightedTitle = item.title.replace(regex, "<span style='color: #60A5FA;'>$1</span>");
