@@ -165,168 +165,67 @@
         <span>Global Search</span>
       </div>
       <h2 class="search-heading">Search Resources</h2>
-      <p class="section-subtitle">Find everything you need in one place, effortlessly.</p>
+      <p class="section-subtitle"><b>Find everything you need in one place, effortlessly.</b></p>
     </div>
 
     <!-- Search Bar Card -->
-    <div class="search-card">
-      <i class="fa-solid fa-magnifying-glass search-main-icon"></i>
-      
-      <input
-        type="text"
-        id="searchInput"
-        class="search-input"
-        placeholder="Search syllabus, notes, PYQs, practical codes..."
-        autocomplete="off"
-        aria-label="Search resources"
-      >
+   <!-- YAHAN SE COPY KAREIN -->
+ <div id="searchCardBox" style="position: relative; width: 100%;">
+  
+  <!-- Search Bar Card -->
+  <div class="search-card">
+    <i class="fa-solid fa-magnifying-glass search-main-icon"></i>
+    
+    <label for="searchInput" class="sr-only">Search resources</label>
+    <input
+      type="text"
+      id="searchInput"
+      class="search-input"
+      name="search"
+      placeholder=""
+      autocomplete="off"
+      aria-label="Search resources"
+      title="Search resources"
+    >
 
-      <!-- Quick Clear Button (Hidden by default) -->
-      <button type="button" id="searchClearBtn" class="search-clear-btn hidden" aria-label="Clear Search">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+    <!-- Quick Clear Button (Hidden by default) -->
+    <button type="button" id="searchClearBtn" class="search-clear-btn hidden" aria-label="Clear Search">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
+    <!-- Action Search Button -->
+    <button id="searchBtn" type="button" class="search-button">
+      <span>Search</span>
+      <i class="fa-solid fa-arrow-right search-btn-arrow"></i>
+    </button>
+  </div>
 
-      <!-- Action Search Button -->
-      <button id="searchBtn" type="button" class="search-button">
-        <span>Search</span>
-        <i class="fa-solid fa-arrow-right search-btn-arrow"></i>
-      </button>
-    </div>
-
-    <!-- Live Glassmorphic Dropdown -->
-    <div id="searchDropdown" class="search-dropdown hidden" role="listbox"></div>
+  <!-- Live Glassmorphic Dropdown -->
+  <div id="searchDropdown" class="search-dropdown hidden" role="listbox"></div>
+  
+</div> 
+<!-- YAHAN TAK COPY KAREIN -->
     
 
   </div>
 </section>
+
 <!-- Dropdown Styles -->
-<style>
-  .search-section {
-    position: relative;
-    z-index: 999;
-    padding: 40px 0;
-  }
-
-  .search-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    overflow: visible !important;
-  }
-
-  .search-card {
-    background: #FFFFFF;
-    border-radius: 50px;
-    padding: 8px 8px 8px 24px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    position: relative;
-    z-index: 10;
-  }
-
-  .search-icon {
-    color: #64748B;
-    font-size: 1.2rem;
-    margin-right: 14px;
-  }
-
-  .search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    color: #0F172A;
-    background: transparent;
-  }
-
-  .search-button {
-    background: #3B82F6;
-    color: #FFFFFF;
-    border: none;
-    padding: 12px 26px;
-    border-radius: 40px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .search-dropdown {
-    position: absolute;
-    top: calc(100% + 12px);
-    left: 24px;
-    right: 24px;
-    background-color: #1E293B;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    max-height: 380px;
-    overflow-y: auto;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 999999;
-  }
-
-  #searchDropdown.hidden {
-    display: none !important;
-  }
-
-  .search-empty-state {
-    text-align: center;
-    padding: 16px;
-    color: #94A3B8;
-    font-size: 0.9rem;
-  }
-
-  .search-result-card {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 16px;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: #FFFFFF !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
-  .search-result-card:hover {
-    background: #3B82F6 !important;
-    color: #FFFFFF !important;
-    transform: translateX(4px);
-  }
-  .search-result-card h4 {
-    margin: 0 0 4px 0 !important;
-    font-size: 0.98rem !important;
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-  }
-  .search-result-card p {
-    margin: 0 !important;
-    font-size: 0.85rem !important;
-    color: #CBD5E1 !important;
-  }
-  .search-result-card:hover p {
-    color: #E2E8F0 !important;
-  }
-</style>
-
-<!-- Direct Standalone Search Script -->
+<!-- Direct Standalone Search Script (Super Interactive) -->
+ 
 <script>
   (function() {
     var input = document.getElementById('searchInput');
     var dropdown = document.getElementById('searchDropdown');
     var searchBtn = document.getElementById('searchBtn');
+    var clearBtn = document.getElementById('searchClearBtn');
+    var searchBox = document.getElementById('searchCardBox');
 
     if (!input || !dropdown) return;
 
-    // Search Database
+    // Search Database (Yahan apna array as it is rakhna jo tumhare paas tha)
+  
+
     var searchDatabase = [
     // =========================================================
     // FORSKO
@@ -383,50 +282,50 @@
         category: "Subject",
         year: "First Year",
         semester: "Semester I",
-        type: "Core Subject",
-        url: "sem1-cf.html"
+        type: "Theory",
+        url: "fundamentals-of-computers.pdf"
     },
 
     {
-        title: "Laboratory on Office Automation Tools",
+        title: "Major/Minor Lab: Laboratory on Office Automation Tools",
         desc: "First Year Semester I practical subject covering Office Automation Tools and practical computer applications.",
-        category: "Subject",
+        category: "Laboratory",
         year: "First Year",
         semester: "Semester I",
-        type: "Laboratory",
-        url: "semester1.html"
+        type: "Regular Practical",
+        url: "office-automation-tools.pdf"
     },
 
     {
-        title: "Laboratory on Information Communication Technology Tools",
-        desc: "First Year Semester I laboratory subject covering Information Communication Technology tools and practical applications.",
-        category: "Subject",
+        title: "SEC: Laboratory on Information Communication Technology Tools",
+        desc: "First Year Semester I SEC laboratory subject covering Information Communication Technology tools and practical applications.",
+        category: "SEC Laboratory",
         year: "First Year",
         semester: "Semester I",
-        type: "Laboratory",
-        url: "semester1.html"
+        type: "SEC Practical",
+        url: "ict-tools.pdf"
     },
 
     {
-        title: "Information Communication Technology",
+        title: "GOEC 1: Information Communication Technology",
         desc: "First Year Semester I GOEC subject covering Information Communication Technology concepts, tools and applications.",
         category: "Subject",
         year: "First Year",
         semester: "Semester I",
         type: "GOEC",
         code: "GOEC 1",
-        url: "semester1.html"
+        url: "goec-ict.pdf"
     },
 
     {
-        title: "Business Data Processing",
+        title: "GOEC 2: Business Data Processing",
         desc: "First Year Semester I GOEC subject covering Business Data Processing concepts and applications.",
         category: "Subject",
         year: "First Year",
         semester: "Semester I",
         type: "GOEC",
         code: "GOEC 2",
-        url: "semester1.html"
+        url: "business-data-processing.pdf"
     },
 
 
@@ -450,62 +349,62 @@
         category: "Subject",
         year: "First Year",
         semester: "Semester II",
-        type: "Programming",
-        url: "semester2.html"
+        type: "Theory",
+        url: "programming-with-c.pdf"
     },
 
     {
-        title: "Laboratory on Programming with C",
+        title: "Major/Minor Lab: Laboratory on Programming with C",
         desc: "First Year Semester II practical subject containing C programs, executable programs, outputs, practical exercises and viva questions.",
-        category: "Subject",
+        category: "Laboratory",
         year: "First Year",
         semester: "Semester II",
-        type: "Laboratory",
-        url: "semester2.html"
+        type: "Regular Practical",
+        url: "programming-with-c-lab.pdf"
     },
 
     {
-        title: "Laboratory on E-Commerce",
+        title: "VSC: Laboratory on E-Commerce",
         desc: "First Year Semester II VSC laboratory covering E-Commerce concepts and practical activities.",
-        category: "Subject",
+        category: "VSC Laboratory",
         year: "First Year",
         semester: "Semester II",
-        type: "VSC Laboratory",
+        type: "VSC Practical",
         code: "VSC",
-        url: "semester2.html"
+        url: "e-commerce-lab.pdf"
     },
 
     {
-        title: "Laboratory on Web Publishing",
+        title: "SEC: Laboratory on Web Publishing",
         desc: "First Year Semester II SEC laboratory covering Web Publishing, HTML, CSS and basic web development.",
-        category: "Subject",
+        category: "SEC Laboratory",
         year: "First Year",
         semester: "Semester II",
-        type: "SEC Laboratory",
+        type: "SEC Practical",
         code: "SEC",
-        url: "semester2.html"
+        url: "web-publishing.pdf"
     },
 
     {
-        title: "E-Business",
+        title: "GOEC 1: E-Business",
         desc: "First Year Semester II GOEC subject covering E-Business concepts, online business and electronic business applications.",
         category: "Subject",
         year: "First Year",
         semester: "Semester II",
         type: "GOEC",
         code: "GOEC 1",
-        url: "semester2.html"
+        url: "e-business.pdf"
     },
 
     {
-        title: "Website Design Principle",
+        title: "GOEC 2: Website Design Principle",
         desc: "First Year Semester II GOEC subject covering website design principles and fundamental web design concepts.",
         category: "Subject",
         year: "First Year",
         semester: "Semester II",
         type: "GOEC",
         code: "GOEC 2",
-        url: "semester2.html"
+        url: "website-design-principles.pdf"
     },
 
 
@@ -530,7 +429,7 @@
 
     {
         title: "Semester III",
-        desc: "Second Year Semester III of B.Sc. Computer Science including Software Engineering, Java, Physics, Indian Knowledge System and Practical.",
+        desc: "Second Year Semester III of B.Sc. Computer Science including Data Structures, RDBMS, laboratory courses, IKS, E Content Development, MySQL Lab, and project-based learning.",
         category: "Semester",
         year: "Second Year",
         semester: "Semester III",
@@ -539,74 +438,103 @@
     },
 
     {
-        title: "Software Engineering",
-        desc: "Second Year Semester V subject covering software engineering concepts, SDLC, software development models, requirements, risk management, design and testing.",
-        category: "Subject",
-        year: "Second Year",
-        semester: "Semester V",
-        type: "Theory",
-        url: "semester5.html"
-    },
-
-    {
-        title: "Java",
-        desc: "Second Year Semester V programming subject covering Java fundamentals, JVM, JDK, JRE, data types, operators, program structure, decision making and looping.",
-        category: "Subject",
-        year: "Second Year",
-        semester: "Semester V",
-        type: "Programming",
-        url: "semester5.html"
-    },
-
-    {
-        title: "Advanced Python Programming",
-        desc: "Second Year Semester V subject covering advanced Python programming concepts, libraries, and applications.",
-        category: "Subject",
-        year: "Second Year",
-        semester: "Semester V",
-        type: "Programming",
-        url: "semester5.html"
-    },
-
-    {
-        title: "Indian Knowledge System",
-        desc: "Second Year Semester III Indian Knowledge System subject covering concepts and traditional knowledge systems.",
+        title: "Major Theory: Data Structure (DS)",
+        desc: "Second Year Semester III subject covering efficient data organization using arrays, linked lists, stacks, queues, trees, and searching and sorting algorithms.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester III",
         type: "Theory",
+        code: "Major",
+        url: "data-structure.pdf"
+    },
+
+    {
+        title: "Major Theory: Relational Database Management System (RDBMS)",
+        desc: "Second Year Semester III subject covering relational databases, SQL, normalization, database design, transactions, and data management concepts.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Theory",
+        code: "Major",
+        url: "rdbms.pdf"
+    },
+
+    {
+        title: "Major Theory: IKS in Computational Sciences",
+        desc: "Second Year Semester III subject covering Indian Knowledge Systems and their applications in mathematics, computing, science, and technology.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Theory",
+        code: "Major",
         code: "IKS",
-        url: "semester3.html"
+        url: "iks.pdf"
     },
 
     {
-        title: "Semester III Practical",
-        desc: "Second Year Semester III practical component for B.Sc. Computer Science students.",
-        category: "Practical",
-        year: "Second Year",
-        semester: "Semester III",
-        type: "Practical",
-        url: "semester3.html"
-    },
-
-    {
-        title: "Data Structure HandWritten Notes",
-        desc: "B.Sc. Computer Science Data Structure subject covering arrays, linked lists, stacks, queues, trees, searching and sorting concepts.",
+        title: "Minor Theory: Data Structure and RDBMS",
+        desc: "Second Year Semester III subject covering efficient data organization, algorithms, relational database design, SQL queries, normalization, and practical database management concepts.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester III",
         type: "Theory",
-        url: "sem3-ds.html"
+        code: "Minor",
+        url: "minor-DS-RDBMS.pdf"
     },
 
     {
-        title: "RDBMS HandWritten Notes",
-        desc: "Relational Database Management System subject covering database concepts, relational model, SQL, constraints, procedures, functions, triggers, backup and recovery.",
+        title: "GOEC: E Content Development",
+        desc: "Second Year Semester III subject covering digital content creation, multimedia design, educational resources, and online publishing techniques.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester III",
-        type: "Database",
-        url: "sem3-rdbms.html"
+        type: "GOEC",
+        code: "GOEC",
+        url: "GOEC-E-Content-Development.pdf"
+    },
+
+    {
+        title: "Major Lab: Laboratory on Data Structure and RDBMS",
+        desc: "Second Year Semester III Practice data structures and SQL through programming exercises, database creation, and query implementation.",
+        category: "Laboratory",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Regular Practical",
+        code: "Major Practical",
+        url: "major-DS-RDBMS.pdf"
+    },
+
+    {
+        title: "Minor Lab: Laboratory on DS and RDBMS",
+        desc: "Second Year Semester III Practice data structures and SQL through programming exercises, database creation, and query implementation.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Regular Practical",
+        code: "Minor Practical",
+        url: "minor-DS-RDBMS-lab.pdf"
+    },
+
+    {
+        title: "VSC: Laboratory on MySQL",
+        desc: "Second Year Semester III VSC laboratory covering practical database skills using MySQL, SQL queries, tables, relationships, and database management.",
+        category: "VSC Laboratory",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "VSC Practical",
+        code: "VSC",
+        url: "vsc-mysql-lab.pdf"
+    },
+
+    {
+        title: "FP/CES - I: Field Project/Community Engagement Services in Computer Application (General): Phase - I",
+        desc: "Second Year Semester III Field Project / Community Engagement course focuses on applying computer/IT knowledge to solve real-world community problems. It develops social responsibility, practical problem-solving, communication, teamwork, and critical-thinking skills through field-based activities.",
+        category: "Field Project",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Field Project",
+        code: "FP",
+        url: "FP-CES-I.pdf"
     },
 
 
@@ -616,7 +544,8 @@
 
     {
         title: "Semester IV",
-        desc: "Second Year Semester IV of B.Sc. Computer Science including Opps with C++, Python, Computer Networks, Computer Organization",
+        desc: "Second Year Semester IV of B.Sc. Computer Science including Object Oriented Programming with C++, Python Programming, Computer Networks, Web Technologies, database labs, and project-based learning.",
+        category: "Semester",
         year: "Second Year",
         semester: "Semester IV",
         type: "Semester",
@@ -624,53 +553,101 @@
     },
 
     {
-        title: "Data Structure",
-        desc: "Second Year Semester IV subject covering data structures, arrays, linked lists, stacks, queues, trees, searching and sorting.",
+        title: "Major Theory: Object Oriented Programming with C++",
+        desc: "Second Year Semester IV subject covering object oriented programming concepts including classes, objects, inheritance, polymorphism, and file handling using C++.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester IV",
         type: "Theory",
-        url: "semester3.html"
+        code: "Major",
+        url: "oop-cpp.pdf"
     },
 
     {
-        title: "Python",
-        desc: "Second Year Semester IV programming subject covering Python programming concepts and problem solving.",
-        category: "Subject",
-        year: "Second Year",
-        semester: "Semester IV",
-        type: "Programming",
-        url: "semester4.html"
-    },
-
-    {
-        title: "Computer Organization",
-        desc: "Second Year Semester IV subject covering computer organization and architecture concepts.",
+        title: "Major Theory: Computer Networks",
+        desc: "Second Year Semester IV subject covering networking concepts, communication protocols, network models, IP addressing, and internet technologies.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester IV",
         type: "Theory",
-        url: "semester4.html"
+        code: "Major",
+        url: "computer-networks.pdf"
     },
 
     {
-        title: "E-Commerce",
-        desc: "Second Year Semester IV subject covering E-Commerce concepts, electronic transactions and online business.",
+        title: "Major Theory: Python Programming",
+        desc: "Second Year Semester IV subject covering Python programming skills through variables, functions, modules, file handling, and object oriented concepts.",
         category: "Subject",
         year: "Second Year",
         semester: "Semester IV",
         type: "Theory",
-        url: "semester4.html"
+        code: "Major",
+        url: "python-programming.pdf"
     },
 
     {
-        title: "Semester IV Practical",
-        desc: "Second Year Semester IV practical component for B.Sc. Computer Science students.",
-        category: "Practical",
+        title: "Minor Theory: C++ and Python Programming",
+        desc: "Second Year Semester IV subject covering fundamentals of C++ and Python programming, object oriented concepts, problem solving, and application development.",
+        category: "Subject",
         year: "Second Year",
         semester: "Semester IV",
-        type: "Practical",
-        url: "semester4.html"
+        type: "Theory",
+        code: "Minor",
+        url: "minor-cpp-python.pdf"
+    },
+
+    {
+        title: "GOEC: Web Technologies",
+        desc: "Second Year Semester IV subject covering  modern web technologies including HTML, CSS, JavaScript, responsive design, client server architecture, and web development fundamentals.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "GOEC",
+        code: "GOEC",
+        url: "GOEC-Web-Technologies.pdf"
+    },
+
+    {
+        title: "Major Lab: Laboratory on C++ and Python Programming",
+        desc: "Second Year Semester IV Practice C++ and Python programming through coding exercises, debugging, problem solving, and real world programming applications.",
+        category: "Laboratory",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Regular Practical",
+        url: "major-cpp-python-lab.pdf"
+    },
+
+    {
+        title: "Minor Lab: Laboratory on C++ and Python Programming",
+        desc: "Second Year Semester IV Practice C++ and Python programming skills through practical coding, debugging, and hands on laboratory exercises.",
+        category: "Subject",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Regular Practical",
+        code: "Minor Practical",
+        url: "minor-cpp-python-lab.pdf"
+    },
+
+    {
+        title: "VSC: Database using Access Laboratory",
+        desc: "Second Year Semester IV VSC laboratory covering practical practical database skills using Microsoft Access, SQL queries, tables, relationships, and database management.",
+        category: "VSC Laboratory",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "VSC Practical",
+        code: "VSC",
+        url: "vsc-access-lab.pdf"
+    },
+
+    {
+        title: "FP/CES - II: Field Project/Community Engagement Services in Computer Application (General): Phase - II",
+        desc: "Second Year Semester IV Field Project / Community Engagement course focuses on applying computer/IT knowledge to solve real-world community problems. It develops social responsibility, practical problem-solving, communication, teamwork, and critical-thinking skills through field-based activities.",
+        category: "Field Project",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Field Project",
+        code: "FP",
+        url: "FP-CES-II.pdf"
     },
 
 
@@ -688,9 +665,15 @@
         url: "third-year.html"
     },
 
+
+    // =========================================================
+    // SEMESTER V
+    // =========================================================
+
+
     {
         title: "Semester V",
-        desc: "Third Year Semester V B.Sc. Computer Science syllabus and academic resources.",
+        desc: "Third Year Semester V B.Sc. Computer Science syllabus including Core Java Programming, Software Engineering, Advanced Python Programming, Data Mining, Data Science, Computer Networks, PHP, practical laboratories, and project-based learning.",
         category: "Semester",
         year: "Third Year",
         semester: "Semester V",
@@ -698,9 +681,160 @@
         url: "semester5.html"
     },
 
+{
+        title: "Major Theory: Core Java Programming",
+        desc: "Third Year Semester V subject covering Core Java programming through object-oriented concepts, decision-making, loops, classes, objects, constructors, inheritance, polymorphism, and interfaces.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Theory",
+        code: "Major",
+        url: "core-java.pdf"
+    },
+
+    {
+        title: "Major Theory: Software Engineering",
+        desc: "Third Year Semester V subject covering Software Engineering through software development life cycle, requirements engineering, risk management, software architecture, design, user interface design, testing, debugging, and quality assurance.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Theory",
+        code: "Major",
+        url: "software-engineering.pdf"
+    },
+
+    {
+        title: "Major Theory: Advanced Python Programming",
+        desc: "Third Year Semester V subject covering Advanced Python Programming through strings, lists, dictionaries, tuples, sets, file handling, regular expressions, and object-oriented programming concepts.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Theory",
+        code: "Major",
+        url: "advance-python.pdf"
+    },
+
+    {
+        title: "Minor Theory: Computer Networks and Advanced Python Programming",
+        desc: "Third Year Semester V subject covering Computer Networks and Advanced Python Programming through networking fundamentals, network devices, OSI model, strings, lists, dictionaries, tuples, sets, and Python data structures.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Theory",
+        code: "Minor",
+        url: "computer-networks-advanced-python.pdf"
+    },
+
+    {
+        title: "Major Elective 1 Theory: Data Mining",
+        desc: "Third Year Semester V subject covering Data Mining through data preprocessing, data warehouses, association rules, classification, clustering, OLAP technology, web and text mining, social network analysis, graph mining, and applications in healthcare, banking, education, and business.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Major Elective 1",
+        code: "Major GOEC",
+        url: "data-mining.pdf"
+    },
+
+     {
+        title: "Major Elective 1 Theory: Data Science",
+        desc: "Third Year Semester V subject covering Data Science through data collection and preprocessing, data visualization, statistics, machine learning, classification, regression, clustering, Big Data, AI, and real-world applications.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Major Elective 1",
+        code: "Major GOEC",
+        url: "data-science.pdf"
+    },
+
+    {
+        title: "Major Lab: Laboratory on Core Java Programming and Advanced Python Programming",
+        desc: "Third Year Semester V Practice Core Java and Advanced Python Programming through hands-on programs on object-oriented concepts, constructors, inheritance, exception handling, strings, lists, dictionaries, functions, files, and Python programming.",
+        category: "Laboratory",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Regular Practical",
+        code: "Major Practical",
+        url: "major-lab-Core-Java-Advanced-Python.pdf"
+    },
+
+    {
+        title: "Minor Lab: Laboratory on Advanced Python Programming",
+        desc: "Third Year Semester V Practice Advanced Python Programming through hands-on programs on data structures, string processing, functions, recursion, file handling, dictionaries, classes, objects, and constructors.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Regular Practical",
+        code: "Minor Practical",
+        url: "advanced-python-lab.pdf"
+    },
+
+    {
+        title: "Major Elective 1 Lab: Laboratory on Data Mining Tools",
+        desc: "Third Year Semester V Elective Laboratory covering Data Mining Tools through hands-on exercises on data preprocessing, normalization, visualization, association rule mining, decision trees, K-Means clustering, and hierarchical clustering.",
+        category: "Major Elective 1 Laboratory",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Major Elective 1 Practical",
+        code: "Major GOEC",
+        url: "data-mining-lab.pdf"
+    },
+
+    {
+        title: "Major Elective 1 Lab: Laboratory on Data Science",
+        desc: "Third Year Semester V Elective Laboratory covering Data Science through hands-on exercises on Python, NumPy arrays, statistical operations, Pandas DataFrames, data cleaning, filtering, CSV/Excel handling, and data visualization.",
+        category: "Major Elective 1 Laboratory",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Major Elective 1 Practical",
+        code: "Major GOEC",
+        url: "data-science-lab.pdf"
+    },
+
+    {
+        title: "VSC: Laboratory on PHP Programming",
+        desc: "Third Year Semester V VSC laboratory covering PHP Programming through hands-on programs on arithmetic operations, strings, arrays, functions, form handling, user-defined functions, and basic web-based applications.",
+        category: "VSC Laboratory",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "VSC Practical",
+        code: "VSC",
+        url: "php.pdf"
+    },
+
+
+    {
+        title: "SEC: Laboratory on VB.NET",
+        desc: "Third Year Semester V SEC laboratory covering VB.Net through hands-on programs on arithmetic operations, conditional statements, factorial, prime numbers, Fibonacci series, swapping, and pattern-based applications.",
+        category: "SEC Laboratory",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "SEC Practical",
+        code: "SEC",
+        url: "vbnet.pdf"
+    },
+
+
+    {
+        title: "Project in Computer Science",
+        desc: "Third Year Semester V project course covering research and application development through innovative problem-solving, design thinking, sustainable solutions, collaborative research, and project documentation.",
+        category: " Project",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Project",
+        code: "Project",
+        url: "project-computer-science.pdf"
+    },
+
+
+
+    // =========================================================
+    // SEMESTER VI
+    // =========================================================
+
     {
         title: "Semester VI",
-        desc: "Third Year Semester VI B.Sc. Computer Science syllabus and academic resources.",
+        desc: "Third Year Semester VI B.Sc. Computer Science syllabus including Advanced Java Programming, Computer Animation, Digital Systems and Microprocessors, Artificial Intelligence, Machine Learning, R Programming, internships, and advanced practical laboratory courses.",
         category: "Semester",
         year: "Third Year",
         semester: "Semester VI",
@@ -708,10 +842,146 @@
         url: "semester6.html"
     },
 
+{
+        title: "Major Theory: Advanced Java Programming",
+        desc: "Third Year Semester VI subject covering Advanced Java Programming through exception handling, multithreading, applets, event handling, AWT controls, JDBC, database connectivity, SQL operations, and web programming",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Theory",
+        code: "Major",
+        url: "advanced-java.pdf"
+    },
+
+    {
+        title: "Major Theory: Computer Animation",
+        desc: "Third Year Semester VI subject covering omputer Animation through computer graphics, traditional and 2D/3D animation, animation software, motion and shape tweening, text and audio/video integration, storyboarding, visual effects, and applications in education, advertising, and entertainment.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Theory",
+        code: "Major",
+        url: "computer-animation.pdf"
+    },
+
+    {
+        title: "Major Theory: Digital Systems and Microprocessors (DSM)",
+        desc: "Third Year Semester VI subject covering Digital Systems and Microprocessors through number systems, binary arithmetic, logic gates, Boolean algebra, De Morgan’s theorem, K-Maps, digital circuit design, and 8085 microprocessor architecture.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Theory",
+        code: "Major",
+        url: "digital-micro-processer.pdf"
+    },
+
+    {
+        title: "Minor Theory: Software Engineering and Java Programming",
+        desc: "Third Year Semester VI subject covering Software Engineering and Java Programming through SDLC, software requirements, risk management, quality metrics, Java history and fundamentals, decision-making, looping, and basic Java programs.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Theory",
+        code: "Minor",
+        url: "software-engineering-java.pdf"
+    },
+
+    {
+        title: "Major Elective 2 Theory: Machine Learning",
+        desc: "Third Year Semester VI subject covering Machine Learning through data preprocessing, regression, classification, clustering, PCA, dimensionality reduction, neural networks, and model evaluation techniques.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Major Elective 2",
+        code: "Major GOEC",
+        url: "machine-learning.pdf"
+    },
+
+     {
+        title: "Major Elective 2 Theory: Artificial Intelligence",
+        desc: "Third Year Semester VI subject covering Artificial Intelligence through intelligent agents, problem-solving and search techniques, expert systems, knowledge representation, natural language processing, parsing, and AI-based.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Major Elective 2",
+        code: "Major GOEC",
+        url: "artificial-intelligence.pdf"
+    },
+
+    {
+        title: "Major Lab: Laboratory on Advanced Java Programming",
+        desc: "Third Year Semester VI Practice Advanced Java Programming through exception handling, applets, AWT components, event-driven programming, JDBC, database operations, and development of Java applications.",
+        category: "Laboratory",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Regular Practical",
+        code: "Major Practical",
+        url: "major-lab-Advanced-Java.pdf"
+    },
+
+    {
+        title: "Minor Lab: Laboratory on Software Engineering and Java Programming",
+        desc: "Third Year Semester VI practical course covering Software Engineering and Java Programming through Java programming fundamentals, problem-solving, loops, classes, objects, constructors, inheritance, SDLC, requirement analysis, UML diagrams, and software testing methods.",
+        category: "Subject",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Regular Practical",
+        code: "Minor Practical",
+        url: "software-engineering-java-lab.pdf"
+    },
+
+    {
+        title: "Major Elective 2 Lab: Laboratory on Artificial Intelligence",
+        desc: "Third Year Semester VI Elective Laboratory course covering Artificial Intelligence through Python programming, search techniques, breadth-first and depth-first search, hill climbing, A algorithm, water jug and travelling salesman problems, and knowledge representation.",
+        category: "Major Elective 2 Laboratory",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Major Elective 2 Practical",
+        code: "Major GOEC",
+        url: "artificial-intelligence-lab.pdf"
+    },
+
+    {
+        title: "Major Elective 2 Lab: Laboratory on Machine Learning",
+        desc: "Third Year Semester VI Elective Laboratory course covering course covering Machine Learning through NumPy, Pandas, Matplotlib, Scikit-learn, data preprocessing, regression, classification, K-Means clustering, PCA, and model evaluation techniques.",
+        category: "Major Elective 2 Laboratory",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Major Elective 2 Practical",
+        code: "Major GOEC",
+        url: "machine-learning.pdf"
+    },
+
+    {
+        title: "VSC: Laboratory on R Programming",
+        desc: "Third Year Semester VI VSC laboratory course covering R Programming through RStudio, data manipulation, statistical analysis, data visualization, dataset handling, regression, hypothesis testing, and real-world data analysis projects.",
+        category: "VSC Laboratory",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "VSC Practical",
+        code: "VSC",
+        url: "r-programming-lab.pdf"
+    },
+
+
+    {
+        title: "Internship/Apprenticeship in Computer Science",
+        desc: "Third Year Semester VI internship course providing practical exposure to industry, research organizations, startups, and professional environments through real-world Computer Science projects, professional skills, teamwork, and experiential learning.",
+        category: "Internship",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Internship",
+        code: "Internship",
+        url: "internship-apprenticeship.pdf"
+    },
+
+
+
 
     // =========================================================
     // NOTES
     // =========================================================
+
 
     {
         title: "B.Sc. Computer Science Notes",
@@ -733,45 +1003,555 @@
         url: "notes-first-year.html"
     },
 
-    {
-        title: "Second Year Notes",
-        desc: "Second Year B.Sc. Computer Science notes for Semester III and Semester IV subjects.",
-        category: "Notes",
-        year: "Second Year",
-        semester: "Semester III & IV",
-        type: "Study Material",
-        url: "notes-second-year.html"
-    },
+
+    // =========================================================
+    // SEM I
+    // =========================================================
+
 
     {
-        title: "Semester 1 Notes",
-        desc: "First Year Semester I subject-wise B.Sc. Computer Science notes.",
+        title: "Fundamentals of Computer Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
         category: "Notes",
         year: "First Year",
         semester: "Semester I",
-        type: "Study Material",
-        url: "notes-semester1.html"
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem1-cf.html"
     },
 
     {
-        title: "Semester 2 Notes",
-        desc: "First Year Semester II subject-wise B.Sc. Computer Science notes.",
+        title: "Fundamentals of Computer Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Fundamentals of Computer.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Infographics",
+        code: "Infographics",
+        url: "fundamentals-of-computer-infographics.pdf"
+    },
+
+    {
+        title: "GOEC 1: Information Communication Technology",
+        desc: "Easy-to-understand notes with key concepts, important topics and quick revision content.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "goec-ict-notes.pdf"
+    },
+
+    {
+        title: "GOEC 2: Business Data Processing",
+        desc: "Easy-to-understand notes with key concepts, important topics and quick revision content.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "business-data-processing-notes.pdf"
+    },
+
+
+    // =========================================================
+    // SEM II
+    // =========================================================
+
+
+
+    {
+        title: "Programming with C Hand Written Notes",
+        desc: "Learn C programming language, variables, operators, control statements, arrays, functions, pointers and file handling.",
         category: "Notes",
         year: "First Year",
         semester: "Semester II",
-        type: "Study Material",
-        url: "notes-semester2.html"
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem2-c.html"
     },
 
     {
-        title: "Semester 3 Notes",
-        desc: "Second Year Semester III subject-wise B.Sc. Computer Science notes.",
+        title: "Programming with C Infographics",
+        desc: "Explore Visual representation of C programming concepts and problem solving techniques.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Infographics",
+        code: "Infographics",
+        url: "programming-with-c-infographics.pdf"
+    },
+
+    {
+        title: "GOEC 1: E-Business",
+        desc: "Comprehensive notes covering e-business concepts, online business models, digital transactions and exam-focused revision.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "sem2-e-bussiness.pdf"
+    },
+
+    {
+        title: "GOEC 2: Website Design Principles",
+        desc: "Easy-to-understand notes covering website design principles, layouts, UI concepts and web design best practices.",
+        category: "Notes",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "website-design-principles-notes.pdf"
+    },
+
+
+
+    // =========================================================
+    // SEM III
+    // =========================================================
+
+
+
+    {
+        title: "Data Structures Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
         category: "Notes",
         year: "Second Year",
         semester: "Semester III",
-        type: "Study Material",
-        url: "notes-semester3.html"
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem3-ds.html"
     },
+
+    {
+        title: "Data Structures Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Data Structures.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem3-ds-infographics.html"
+    },
+
+    {
+        title: "Relational Database Management Systems Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem3-rdbms.html"
+    },
+
+    {
+        title: "Relational Database Management Systems Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Relational Database Management Systems.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem3.rdbms-infographics.html"
+    },
+
+
+    {
+        title: "IKS in Computational Science",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "IKS",
+        url: "iks-sem3.html"
+    },
+
+    {
+        title: "Minor: Data Structure and RDBMS",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Minor",
+        url: "mn-data-structure-rdbms.html"
+    },
+
+    {
+        title: "GOEC : E Content Development",
+        desc: "Easy-to-understand notes with key concepts, important topics and quick revision content.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "goec-e-content-development-notes.pdf"
+    },
+
+
+
+    // =========================================================
+    // SEM IV
+    // =========================================================
+
+
+
+    {
+        title: "OOP with C++ Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem4-oop.html"
+    },
+
+    {
+        title: "OOP with C++ Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for OOP with C++.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem4-oop-infographics.pdf"
+    },
+
+    {
+        title: "Computer Networks Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem4-computer-networks.html"
+    },
+
+    {
+        title: "Computer Networks Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Computer Networks.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem4-computer-networks-infographics.pdf"
+    },
+
+
+    {
+        title: "Python Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem4-python-programming.pdf"
+    },
+
+    {
+        title: "Python Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Python Programming.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem4-python-programming-infographics.pdf"
+    },
+
+    {
+        title: "Minor: C++ and Python Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Minor",
+        url: "mn-cpp-python-programming.pdf"
+    },
+
+    {
+        title: "Minor: C++ and Python Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for C++ and Python Programming.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Infographics",
+        code: "Infographics",
+        url: "mn-cpp-python-programming-infographics.pdf"
+    },
+
+    {
+        title: "GOEC : Web Technologies",
+        desc: "Easy-to-understand notes with key concepts, important topics and quick revision content.",
+        category: "Notes",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Notes",
+        code: "GOEC Notes",
+        url: "goec-web-technologies-notes.pdf"
+    },
+
+
+    // =========================================================
+    // SEM V
+    // =========================================================
+
+
+
+    {
+        title: "Core Java Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem5-core-java.pdf"
+    },
+
+    {
+        title: "Core Java Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Core Java Programming.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem5-core-java-infographics.pdf"
+    },
+
+    {
+        title: "Software Engineering Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem5-software-engineering.pdf"
+    },
+
+    {
+        title: "Software Engineering Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Software Engineering.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem5-software-engineering-infographics.pdf"
+    },
+
+
+    {
+        title: "Advanced Python Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem5-advanced-python-programming.pdf"
+    },
+
+    {
+        title: "Advanced Python Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Advanced Python Programming.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem5-advanced-python-programming-infographics.pdf"
+    },
+
+    {
+        title: "Major Elective 1: Data Science Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Major Elective 1",
+        url: "sem5-data-science.pdf"
+    },
+
+    {
+        title: "Major Elective 1: Data Mining Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Major Elective 1",
+        url: "sem5-data-mining.pdf"
+    },
+
+
+
+    {
+        title: "Minor: Computer Networks and Advanced Python Programming",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Minor",
+        url: "sem5-computer-networks-advanced-python.pdf"
+    },
+
+
+    {
+        title: "Foundation of Artificial Intelligence Infographics",
+        desc: "Easy-to-understand notes with key concepts, important topics and quick revision content.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Notes",
+        code: "AI",
+        code: "AI Notes",
+        url: "sem5-foundation-ai-handwritten.pdf"
+    },
+
+
+    // =========================================================
+    // SEM VI
+    // =========================================================
+
+
+
+    {
+        title: "Advance Java Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem6-advance-java.pdf"
+    },
+
+    {
+        title: "Advance Java Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Advance Java Programming.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem6-advance-java-infographics.pdf"
+    },
+
+    {
+        title: "Computer Animation Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem6-computer-animation.pdf"
+    },
+
+    {
+        title: "Computer Animation Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Computer Animation.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem6-computer-animation-infographics.pdf"
+    },
+
+
+    {
+        title: "Digital Systems and Microprocessors (DSM) Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        url: "sem6-dsm-hand-written-notes.pdf"
+    },
+
+    {
+        title: "Digital Systems and Microprocessors (DSM) Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Digital Systems and Microprocessors (DSM).",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem6-dsm-infographics.pdf"
+    },
+
+    {
+        title: "Major Elective 2: Artificial Intelligence Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Major Elective 2",
+        url: "sem6-ai-hand-written-notes.pdf"
+    },
+
+    {
+        title: "Major Elective 2: Machine Learning Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Major Elective 2",
+        url: "sem6-ml-hand-written-notes.pdf"
+    },
+
+
+
+    {
+        title: "Minor: Software Engineering and Java Programming Hand Written Notes",
+        desc: "Comprehensive notes with easy explanations, diagrams, important concepts and exam-focused revision material.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Hand Written Notes",
+        code: "Handwritten",
+        code: "Minor",
+        url: "sem6-software-engineering-java-programming.pdf"
+    },
+
+
+    {
+        title: "Minor: Software Engineering and Java Programming Infographics",
+        desc: "Explore visual infographics covering key concepts, diagrams, flowcharts and quick revision topics for Software Engineering and Java Programming.",
+        category: "Notes",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Infographics",
+        code: "Infographics",
+        url: "sem6-software-engineering-java-programming-infographics.pdf"
+    },
+
+
+
 
 
     // =========================================================
@@ -785,17 +1565,8 @@
         year: "All Years",
         semester: "Semester I to VI",
         type: "Question Papers",
+        code:"PYQs",
         url: "pyqs.html"
-    },
-
-    {
-        title: "First Year PYQs",
-        desc: "First Year B.Sc. Computer Science Previous Year Question Papers for Semester I and II.",
-        category: "PYQs",
-        year: "First Year",
-        semester: "Semester I & II",
-        type: "Question Papers",
-        url: "pyqs-first-year.html"
     },
 
     {
@@ -805,8 +1576,66 @@
         year: "First Year",
         semester: "Semester I",
         type: "Question Papers",
+        code:"PYQs",
         url: "pyqs-semester1.html"
     },
+
+
+     {
+        title: "Semester 2 PYQs",
+        desc: "First Year Semester II B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Question Papers",
+        code:"PYQs",
+        url: "pyqs-semester2.html"
+    },
+
+    {
+        title: "Semester 3 PYQs",
+        desc: "First Year Semester III B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester III",
+        type: "Question Papers",
+        code:"PYQs",
+        url: "pyqs-semester3.html"
+    },
+
+    {
+        title: "Semester 4 PYQs",
+        desc: "First Year Semester IV B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester IV",
+        type: "Question Papers",
+        code:"PYQs",
+        url: "pyqs-semester4.html"
+    },
+
+    {
+        title: "Semester 5 PYQs",
+        desc: "First Year Semester V B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester V",
+        type: "Question Papers",
+        code:"PYQs",
+        url: "pyqs-semester5.html"
+    },
+
+    {
+        title: "Semester 6 PYQs",
+        desc: "First Year Semester VI B.Sc. Computer Science Previous Year Question Papers.",
+        category: "PYQs",
+        year: "First Year",
+        semester: "Semester VI",
+        type: "Question Papers",
+        code:"PYQs",
+        url: "pyqs-semester6.html"
+    },
+
 
 
     // =========================================================
@@ -834,7 +1663,7 @@
     },
 
     {
-        title: "Semester 1 Question Bank",
+        title: "Semester I Question Bank",
         desc: "First Year Semester I unit-wise important and expected questions.",
         category: "Question Bank",
         year: "First Year",
@@ -843,6 +1672,76 @@
         url: "qb-semester1.html"
     },
 
+    {
+        title: "Semester II Question Bank",
+        desc: "First Year Semester II unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester I",
+        type: "Question Bank",
+        url: "qb-semester2.html"
+    },
+
+    {
+        title: "Second Year Question Bank",
+        desc: "First Year B.Sc. Computer Science important and expected questions.",
+        category: "Question Bank",
+        year: "Second Year",
+        semester: "Semester III & IV",
+        type: "Question Bank",
+        url: "qb-second-year.html"
+    },
+
+    {
+        title: "Semester III Question Bank",
+        desc: "First Year Semester III unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester IV",
+        type: "Question Bank",
+        url: "qb-semester3.html"
+    },
+
+    {
+        title: "Semester IV Question Bank",
+        desc: "First Year Semester IV unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester IV",
+        type: "Question Bank",
+        url: "qb-semester4.html"
+    },
+
+
+    {
+        title: "Third Year Question Bank",
+        desc: "First Year B.Sc. Computer Science important and expected questions.",
+        category: "Question Bank",
+        year: "Third Year",
+        semester: "Semester V & VI",
+        type: "Question Bank",
+        url: "qb-third-year.html"
+    },
+
+    {
+        title: "Semester V Question Bank",
+        desc: "First Year Semester V unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester IV",
+        type: "Question Bank",
+        url: "qb-semester5.html"
+    },
+
+    {
+        title: "Semester VI Question Bank",
+        desc: "First Year Semester VI unit-wise important and expected questions.",
+        category: "Question Bank",
+        year: "First Year",
+        semester: "Semester VI",
+        type: "Question Bank",
+        url: "qb-semester6.html"
+    },
 
     // =========================================================
     // PAPER PATTERN
@@ -855,36 +1754,110 @@
         year: "All Years",
         semester: "Semester I to VI",
         type: "Examination",
-        url: "pp-first-year.html"
+        url: "paper-patterns.html"
     },
 
     {
-        title: "First Year Paper Pattern",
-        desc: "First Year B.Sc. Computer Science examination paper pattern and marks distribution.",
+        title: "Official Paper Pattern",
+        desc: " B.Sc. Computer Science examination paper pattern and marks distribution.",
         category: "Paper Pattern",
-        year: "First Year",
-        semester: "Semester I & II",
+        year: "All Years",
+        semester: "Semester I to VI",
         type: "Examination",
-        url: "pp-first-year.html"
+        url: "official-paper-pattern.pdf"
     },
 
     {
-        title: "Semester 1 Paper Pattern",
-        desc: "First Year Semester I B.Sc. Computer Science examination paper pattern and marks distribution.",
+        title: "Semester I Sample Paper",
+        desc: "First Year Semester I B.Sc. Computer Science Sample Papers.",
         category: "Paper Pattern",
         year: "First Year",
         semester: "Semester I",
         type: "Examination",
-        url: "pp-semester1.html"
-    }
+        code:"Sample Papers",
+        url: "sample-papers-semester1.pdf"
+    },
+
+    {
+        title: "Semester II Sample Paper",
+        desc: "First Year Semester II B.Sc. Computer Science Sample Papers.",
+        category: "Paper Pattern",
+        year: "First Year",
+        semester: "Semester II",
+        type: "Examination",
+        code:"Sample Papers",
+        url: "sample-papers-semester2.pdf"
+    },
+
+    {
+        title: "Semester III Sample Paper",
+        desc: "First Year Semester III B.Sc. Computer Science Sample Papers.",
+        category: "Paper Pattern",
+        year: "Second Year",
+        semester: "Semester III",
+        type: "Examination",
+        code:"Sample Papers",
+        url: "sample-papers-semester3.pdf"
+    },
+
+    {
+        title: "Semester IV Sample Paper",
+        desc: "First Year Semester IV B.Sc. Computer Science Sample Papers.",
+        category: "Paper Pattern",
+        year: "Second Year",
+        semester: "Semester IV",
+        type: "Examination",
+        code:"Sample Papers",
+        url: "sample-papers-semester4.pdf"
+    },
+
+    {
+        title: "Semester V Sample Paper",
+        desc: "First Year Semester V B.Sc. Computer Science Sample Papers.",
+        category: "Paper Pattern",
+        year: "Third Year",
+        semester: "Semester V",
+        type: "Examination",
+        code:"Sample Papers",
+        url: "sample-papers-semester5.pdf"
+    },
+
+    {
+        title: "Semester VI Sample Paper",
+        desc: "First Year Semester VI B.Sc. Computer Science Sample Papers.",
+        category: "Paper Pattern",
+        year: "Third Year",
+        semester: "Semester VI",
+        type: "Examination",
+        code:"Sample Papers",
+        url: "sample-papers-semester6.pdf"
+    },
 
 ];
 
-    // Live Input Event
+
+    // 🌟 Keyboard Shortcut (Ctrl + K or Cmd + K) Logic
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault(); // Browser default behavior roko
+        input.focus(); // Search bar par focus karo
+        
+        // Agar pehle se type kiya hua hai, to usko select karlo
+        if(input.value.length > 0) {
+            input.select();
+        }
+      }
+    });
+
+    // 🌟 Live Input Event & Clear Button Toggle
     input.addEventListener('input', function() {
       var query = input.value.trim().toLowerCase();
       
-      if (!query) {
+      // Clear Button Show/Hide Logic
+      if (query.length > 0) {
+        clearBtn.style.display = 'flex';
+      } else {
+        clearBtn.style.display = 'none';
         dropdown.classList.add('hidden');
         dropdown.innerHTML = '';
         return;
@@ -898,13 +1871,17 @@
       dropdown.innerHTML = '';
 
       if (matches.length === 0) {
-        dropdown.innerHTML = '<div style="text-align:center; padding: 16px; color: #94A3B8; font-size: 0.9rem;">No matching material found</div>';
+        dropdown.innerHTML = '<div style="text-align:center; padding: 24px; color: #94A3B8;"><i class="fa-solid fa-ghost" style="font-size: 2rem; color:#3B82F6; margin-bottom:10px;"></i><br><b style="color:#FFF;">No material found</b><br>Try searching something else like "Notes" or "PYQs"</div>';
       } else {
         matches.forEach(function(item) {
           var card = document.createElement('a');
           card.href = item.url;
           card.className = 'search-result-card';
-          card.innerHTML = '<h4>' + item.title + '</h4><p>' + item.desc + '</p>';
+          // Query Highlight (Bold karna matching text ko)
+          var regex = new RegExp(`(${query})`, "gi");
+          var highlightedTitle = item.title.replace(regex, "<span style='color: #60A5FA;'>$1</span>");
+          
+          card.innerHTML = '<h4>' + highlightedTitle + '</h4><p>' + item.desc + '</p>';
           dropdown.appendChild(card);
         });
       }
@@ -912,14 +1889,33 @@
       dropdown.classList.remove('hidden');
     });
 
-    // Close on Outside Click
-    document.addEventListener('click', function(e) {
-      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+    // 🌟 Clear Button Click Action
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function() {
+        input.value = '';
+        clearBtn.style.display = 'none';
         dropdown.classList.add('hidden');
+        input.focus(); // Clear hone ke baad wapas focus karna
+      });
+    }
+
+    // 🌟 Close on Outside Click
+    document.addEventListener('click', function(e) {
+      if (searchBox && dropdown) {
+        if (!searchBox.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.add('hidden');
+        }
       }
     });
 
-    // Button Click Search First Match
+    // 🌟 Show dropdown again if clicked on input and has text
+    input.addEventListener('focus', function() {
+      if (input.value.trim().length > 0) {
+        dropdown.classList.remove('hidden');
+      }
+    });
+
+    // 🌟 Button Click Search First Match
     if (searchBtn) {
       searchBtn.addEventListener('click', function() {
         var query = input.value.trim().toLowerCase();
@@ -934,6 +1930,93 @@
     }
   })();
 </script>
+
+
+<!-- Live Typing Placeholder Animation Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    // Yahan aap wo words likh sakte hain jo aap type karwana chahte hain
+    var typingWords = [
+    "B.Sc. Computer Science Syllabus...",
+    "Computer Science Notes...",
+    "Computer Science PYQs...",
+    "Computer Science Question Banks...",
+    "Computer Science Paper Patterns...",
+    "Fundamentals of Computers...",
+    "Programming with C...",
+    "Data Structures...",
+    "RDBMS...",
+    "Advanced Python...",
+    "Core Java...",
+    "Data Mining & Data Science...",
+    "Artificial Intelligence...",
+    "Computer Networks...",
+    "Software Engineering...",
+    "Web Development...",
+    "PHP & VB.NET...",
+    "SQL & MySQL Codes...",
+    "Infographics & Study Resources...",
+    "Semester-wise Study Materials...",
+    "Subject-wise Learning Resources...",
+    "Study Notes & Handwritten Notes...",
+    "Previous Year Question Papers...",
+    "Winter & Summer Exam Papers...",
+    "Unit-wise Question Banks...",
+    "Most Important Topics...",
+    "Most Repeated Questions...",
+    "Exam Paper Patterns...",
+    "Sample Question Papers...",
+    "Study Smart with Forsko...",
+    "And Many More..."
+    ];
+
+    var wordIndex = 0;
+    var charIndex = 0;
+    var isDeleting = false;
+
+    function animatePlaceholder() {
+      var currentWord = typingWords[wordIndex];
+
+      // Typing or Deleting logic
+      if (isDeleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+
+      // Add a blinking cursor effect "|" while typing
+      var textToShow = "Search " + currentWord.substring(0, charIndex);
+      var cursor = (charIndex === currentWord.length) ? "" : "|";
+      
+      searchInput.setAttribute('placeholder', textToShow + cursor);
+
+      // Animation speeds (milliseconds)
+      var typingSpeed = isDeleting ? 40 : 80;
+
+      // When word is fully typed, pause before deleting
+      if (!isDeleting && charIndex === currentWord.length) {
+        typingSpeed = 2000; // 2 seconds tak wait karega
+        isDeleting = true;
+      } 
+      // When word is fully deleted, move to next word
+      else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % typingWords.length;
+        typingSpeed = 500; // 0.5 second wait karke naya type karega
+      }
+
+      setTimeout(animatePlaceholder, typingSpeed);
+    }
+
+    // Start the animation after 1 second of page load
+    setTimeout(animatePlaceholder, 1000);
+  });
+</script>
+
+
 
 <!-- Glowing Line Divider -->
 <div class="glowing-divider">
@@ -1119,16 +2202,11 @@
     <div class="section-header">
       <span class="sub-badge">Real-Time Feed</span>
       <h2>Latest Updates</h2>
-      <p class="section-subtitle">Stay informed with the newest study notes, past papers, and university curriculum changes.</p>
+      <p class="section-subtitle"><b>Stay informed with the newest study notes, past papers, and university curriculum changes.</b></p>
     </div>
 
     <!-- Updates Horizontal Grid (3 Cards Per Row) -->
     <div class="updates-grid">
-
-      
-
-
-
 
       <!-- Item 1: Notes -->
       <div class="update-card">
@@ -1141,78 +2219,11 @@
           </span>
         </div>
         <div class="update-card-body">
-          <h3 class="update-title">Sem - V Notes</h3>
-          <p class="update-desc">Comprehensive notes for Semester V subjects, including handwritten and infographic-based explanations. </p>
+          <h3 class="update-title">All Semesters Syllabi Available</h3>
+          <p class="update-desc">Latest syllabus for all semesters are available, official and up-to-date.</p>
         </div>
         <div class="update-card-footer">
-          <a href="notes-semester5.html" class="btn-update-open">
-            <span>Open</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Item 1: Notes -->
-      <div class="update-card">
-        <div class="update-card-header">
-          <span class="update-badge badge-new">
-            <span class="badge-dot"></span> New
-          </span>
-          <span class="update-date">
-          <i class="fa-regular fa-clock"></i>
-          </span>
-        </div>
-        <div class="update-card-body">
-          <h3 class="update-title">Sem - I Syllabus</h3>
-          <p class="update-desc">Latest syllabus for Semester I, official and up-to-date.</p>
-        </div>
-        <div class="update-card-footer">
-          <a href="semester1.html" class="btn-update-open">
-            <span>Open</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Item 1: Notes -->
-      <div class="update-card">
-        <div class="update-card-header">
-          <span class="update-badge badge-new">
-            <span class="badge-dot"></span> New
-          </span>
-          <span class="update-date">
-          <i class="fa-regular fa-clock"></i>
-          </span>
-        </div>
-        <div class="update-card-body">
-          <h3 class="update-title">Sem - III Syllabus</h3>
-          <p class="update-desc">Latest syllabus for Semester III, official and up-to-date.</p>
-        </div>
-        <div class="update-card-footer">
-          <a href="semester3.html" class="btn-update-open">
-            <span>Open</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-
-      <!-- Item 2: PYQs -->
-      <div class="update-card">
-        <div class="update-card-header">
-          <span class="update-badge badge-new">
-            <span class="badge-dot"></span> NEW
-          </span>
-          <span class="update-date">
-       <i class="fa-regular fa-clock"></i>
-          </span>
-        </div>
-        <div class="update-card-body">
-          <h3 class="update-title">Sem - V Syllabus</h3>
-          <p class="update-desc">Latest syllabus for Semester V, official and up-to-date.</p>
-        </div>
-        <div class="update-card-footer">
-          <a href="semester5.html" class="btn-update-open">
+          <a href="syllabus.html" class="btn-update-open">
             <span>Open</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
@@ -1263,8 +2274,27 @@
         </div>
       </div>
 
-
-
+      <!-- Item 1: Notes -->
+      <div class="update-card">
+        <div class="update-card-header">
+          <span class="update-badge badge-new">
+            <span class="badge-dot"></span> New
+          </span>
+          <span class="update-date">
+            <i class="fa-regular fa-clock"></i>
+          </span>
+        </div>
+        <div class="update-card-body">
+          <h3 class="update-title">Sem - V Notes</h3>
+          <p class="update-desc">Comprehensive notes for Semester V subjects, including detailed explanations and solved examples.</p>
+        </div>
+        <div class="update-card-footer">
+          <a href="notes-semester5.html" class="btn-update-open">
+            <span>Open</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
 
       <!-- Item 2: PYQs -->
       <div class="update-card">
@@ -1278,7 +2308,7 @@
         </div>
         <div class="update-card-body">
           <h3 class="update-title">Semester I & III PYQs</h3>
-          <p class="update-desc">Official SGBAU Summer & Winter question papers (2024–2026) sorted unit-wise with solution keys.</p>
+          <p class="update-desc">Official SGBAU Summer & Winter question papers (2024–2026).</p>
         </div>
         <div class="update-card-footer">
           <a href="pyqs.html" class="btn-update-open">
