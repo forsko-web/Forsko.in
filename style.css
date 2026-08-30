@@ -3049,6 +3049,163 @@ mark.search-highlight {
     display: none !important; /* Phone par blur overflow hatayega */
   }
 }
+
+/* ==========================================================================
+   🔥 PERFECT MOBILE SEARCH BAR FIX
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Box ko wapas ek line (row) me set karega aur pill shape dega */
+  .search-card {
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 6px 6px 6px 18px !important;
+    border-radius: 50px !important;
+    gap: 10px !important;
+    height: auto !important;
+  }
+
+  /* Input area ko proper width dega without overflowing */
+  .search-input {
+    width: 100% !important;
+    flex: 1 !important;
+    font-size: 0.95rem !important;
+    text-align: left !important;
+  }
+
+  /* Search button ke andar ka text hide karega taaki space bache */
+  .search-btn-text {
+    display: none !important;
+  }
+
+  /* Search button ko ek premium circular Arrow icon banayega */
+  .search-button {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Arrow icon ki spacing fix karega */
+  .search-btn-arrow {
+    margin: 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Hover par arrow hilne ka fix */
+  .search-button:hover .search-btn-arrow {
+    transform: none !important;
+  }
+
+  /* Search main glass icon ki size thodi adjust karega */
+  .search-main-icon {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* ==========================================================================
+   🔥 FIX FOR SEARCH DROPDOWN CARDS & TEXT COLOR
+   ========================================================================== */
+
+/* Main Dropdown Container */
+.search-dropdown {
+  background-color: rgba(15, 23, 42, 0.98) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 12px !important;
+}
+
+/* Individual Search Result Card */
+.search-result-card {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 14px 18px !important;
+  background: rgba(30, 41, 59, 0.7) !important; /* Premium dark glass */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  margin-bottom: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover Effect for Card */
+.search-result-card:hover {
+  background: rgba(59, 130, 246, 0.25) !important; /* Blue glow on hover */
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Search Title (H4) - Forced to White */
+.search-result-card h4 {
+  color: #FFFFFF !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 6px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Search Description (P) - Forced to Light Grey */
+.search-result-card p {
+  color: #CBD5E1 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Highlighted Match Text */
+.search-result-card span {
+  color: #60A5FA !important; /* Light blue highlight for matching words */
+  font-weight: 800 !important;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%; /* Search bar ke thik neeche aane ke liye */
+  left: 0;
+  width: 100%;
+  max-height: 300px; /* Mobile par keyboard aane ke baad scrollable area */
+  overflow-y: auto;
+  z-index: 99999 !important; /* Ye sabse zaroori hai mobile par upar dikhane ke liye */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Aapka glassmorphic effect */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+/* Hidden class jo JS toggle kar raha hai */
+.hidden {
+  display: none !important;
+}
+
+/* Dropdown Box Styling */
+.search-dropdown {
+  position: absolute;
+  top: 100%; /* Search bar ke thik niche lane ke liye */
+  left: 0;
+  width: 100%;
+  max-height: 300px; /* Mobile par list jyada badi na ho (scrollable bane) */
+  overflow-y: auto;
+  z-index: 99999 !important; /* SABSE IMPORTANT: Isse ye sabke upar dikhega */
+  background: rgba(255, 255, 255, 0.95); /* Glassmorphic background */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+/* Hidden class jo JS use karta hai hide karne ke liye */
+.hidden {
+  display: none !important;
+}
+
 /* ==========================================================================
    End of Forsko Stylesheet
    ========================================================================== */
