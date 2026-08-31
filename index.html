@@ -1835,124 +1835,304 @@
 
 ];
 
+// 🌟 Keyboard Shortcut (Ctrl + K or Cmd + K) Logic
+document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        input.focus();
 
-    // 🌟 Keyboard Shortcut (Ctrl + K or Cmd + K) Logic
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault(); // Browser default behavior roko
-        input.focus(); // Search bar par focus karo
-        
-        // Agar pehle se type kiya hua hai, to usko select karlo
-        if(input.value.length > 0) {
+        if (input.value.length > 0) {
             input.select();
         }
-      }
-    });
+    }
+});
 
-    // 🌟 Live Input Event & Clear Button Toggle
-    input.addEventListener('input', function() {
-      var query = input.value.trim().toLowerCase();
-      
-      // Clear Button Show/Hide Logic
-      if (query.length > 0) {
-        clearBtn.style.display = 'flex';
-      } else {
-        clearBtn.style.display = 'none';
+
+// ==========================================
+// 🌟 LIVE SEARCH FUNCTION
+// ==========================================
+
+function performSearch() {
+
+    var query = input.value.trim().toLowerCase();
+
+    // Empty Search
+    if (query.length === 0) {
+
+        if (clearBtn) {
+            clearBtn.style.display = 'none';
+        }
+
         dropdown.classList.add('hidden');
         dropdown.innerHTML = '';
+
         return;
-      }
+    }
 
-      var matches = searchDatabase.filter(function(item) {
-        return item.title.toLowerCase().indexOf(query) !== -1 || 
-              item.desc.toLowerCase().indexOf(query) !== -1;
-      });
 
-      dropdown.innerHTML = '';
-
-      if (matches.length === 0) {
-        dropdown.innerHTML = '<div style="text-align:center; padding: 24px; color: #94A3B8;"><i class="fa-solid fa-ghost" style="font-size: 2rem; color:#3B82F6; margin-bottom:10px;"></i><br><b style="color:#FFF;">No material found</b><br>Try searching something else like "Notes" or "PYQs"</div>';
-      } else {
-        matches.forEach(function(item) {
-          matches.forEach(function(item) {
-    var card = document.createElement('a');
-
-    card.href = item.url;
-    card.className = 'search-result-card';
-
-    var regex = new RegExp(`(${query})`, "gi");
-
-    var highlightedTitle = item.title.replace(
-        regex,
-        "<span style='color: #60A5FA;'>$1</span>"
-    );
-
-    card.innerHTML =
-        '<h4>' + highlightedTitle + '</h4>' +
-        '<p>' + item.desc + '</p>';
-
-    card.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-
-    card.addEventListener('touchend', function(e) {
-        e.stopPropagation();
-    });
-
-    dropdown.appendChild(card);
-});
-          // Query Highlight (Bold karna matching text ko)
-          var regex = new RegExp(`(${query})`, "gi");
-          var highlightedTitle = item.title.replace(regex, "<span style='color: #60A5FA;'>$1</span>");
-          
-          card.innerHTML = '<h4>' + highlightedTitle + '</h4><p>' + item.desc + '</p>';
-          dropdown.appendChild(card);
-        });
-      }
-
-      dropdown.classList.remove('hidden');
-    });
-
-    // 🌟 Clear Button Click Action
+    // Show Clear Button
     if (clearBtn) {
-      clearBtn.addEventListener('click', function() {
-        input.value = '';
-        clearBtn.style.display = 'none';
-        dropdown.classList.add('hidden');
-        input.focus(); // Clear hone ke baad wapas focus karna
-      });
+        clearBtn.style.display = 'flex';
     }
 
-    // 🌟 Close on Outside Click
-    document.addEventListener('click', function(e) {
-      if (searchBox && dropdown) {
-        if (!searchBox.contains(e.target) && !dropdown.contains(e.target)) {
-          dropdown.classList.add('hidden');
-        }
-      }
+
+    // Find Matches
+    var matches = searchDatabase.filter(function(item) {
+
+        var title = (item.title || '').toLowerCase();
+        var desc = (item.desc || '').toLowerCase();
+
+        return (
+            title.indexOf(query) !== -1 ||
+            desc.indexOf(query) !== -1
+        );
+
     });
 
-    // 🌟 Show dropdown again if clicked on input and has text
-    input.addEventListener('focus', function() {
-      if (input.value.trim().length > 0) {
-        dropdown.classList.remove('hidden');
-      }
-    });
 
-    // 🌟 Button Click Search First Match
-    if (searchBtn) {
-      searchBtn.addEventListener('click', function() {
-        var query = input.value.trim().toLowerCase();
-        if (!query) return;
-        var firstMatch = searchDatabase.find(function(item) {
-          return item.title.toLowerCase().indexOf(query) !== -1 || item.desc.toLowerCase().indexOf(query) !== -1;
+    // Clear Previous Results
+    dropdown.innerHTML = '';
+
+
+    // No Results
+    if (matches.length === 0) {
+
+        dropdown.innerHTML = `
+            <div style="
+                text-align:center;
+                padding:24px;
+                color:#94A3B8;
+            ">
+                <i class="fa-solid fa-ghost"
+                   style="
+                       font-size:2rem;
+                       color:#3B82F6;
+                       margin-bottom:10px;
+                   ">
+                </i>
+
+                <br>
+
+                <b style="color:#FFF;">
+                    No material found
+                </b>
+
+                <br>
+
+                Try searching something else like
+                "Notes" or "PYQs"
+            </div>
+        `;
+
+    } else {
+
+        // Create Result Cards
+        matches.slice(0, 20).forEach(function(item) {
+
+            var card = document.createElement('a');
+
+            card.href = item.url;
+            card.className = 'search-result-card';
+
+
+            // Escape special characters for RegExp
+            var escapedQuery = query.replace(
+                /[.*+?^${}()|[\]\\]/g,
+                '\\$&'
+            );
+
+            var regex = new RegExp(
+                '(' + escapedQuery + ')',
+                'gi'
+            );
+
+
+            // Highlight Title
+            var highlightedTitle = item.title.replace(
+                regex,
+                "<span style='color:#60A5FA;'>$1</span>"
+            );
+
+
+            card.innerHTML =
+                '<h4>' + highlightedTitle + '</h4>' +
+                '<p>' + item.desc + '</p>';
+
+
+            // Mobile Touch Support
+            card.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+            }, { passive: true });
+
+
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+
+            dropdown.appendChild(card);
+
         });
-        if (firstMatch) {
-          window.location.href = firstMatch.url;
-        }
-      });
+
     }
-  })();
+
+
+    // Show Dropdown
+    dropdown.classList.remove('hidden');
+
+    dropdown.style.display = 'block';
+    dropdown.style.pointerEvents = 'auto';
+    dropdown.style.visibility = 'visible';
+    dropdown.style.opacity = '1';
+
+}
+
+
+// ==========================================
+// 🌟 INPUT EVENTS
+// ==========================================
+
+// Normal typing
+input.addEventListener('input', performSearch);
+
+// Mobile fallback
+input.addEventListener('keyup', performSearch);
+
+// Extra mobile support
+input.addEventListener('change', performSearch);
+
+
+// ==========================================
+// 🌟 INPUT FOCUS
+// ==========================================
+
+input.addEventListener('focus', function() {
+
+    if (input.value.trim().length > 0) {
+        performSearch();
+    }
+
+});
+
+
+// ==========================================
+// 🌟 TOUCH SUPPORT FOR MOBILE
+// ==========================================
+
+input.addEventListener('touchstart', function() {
+
+    setTimeout(function() {
+        input.focus();
+    }, 50);
+
+}, { passive: true });
+
+
+// ==========================================
+// 🌟 CLEAR BUTTON
+// ==========================================
+
+if (clearBtn) {
+
+    clearBtn.addEventListener('click', function() {
+
+        input.value = '';
+
+        clearBtn.style.display = 'none';
+
+        dropdown.classList.add('hidden');
+
+        dropdown.innerHTML = '';
+
+        input.focus();
+
+    });
+
+}
+
+
+// ==========================================
+// 🌟 CLOSE DROPDOWN OUTSIDE
+// ==========================================
+
+document.addEventListener('click', function(e) {
+
+    if (searchBox && dropdown) {
+
+        if (
+            !searchBox.contains(e.target) &&
+            !dropdown.contains(e.target)
+        ) {
+
+            dropdown.classList.add('hidden');
+
+        }
+
+    }
+
+});
+
+
+// ==========================================
+// 🌟 SEARCH BUTTON
+// ==========================================
+
+if (searchBtn) {
+
+    searchBtn.addEventListener('click', function() {
+
+        var query = input.value.trim().toLowerCase();
+
+        if (!query) {
+            input.focus();
+            return;
+        }
+
+        var firstMatch = searchDatabase.find(function(item) {
+
+            var title = (item.title || '').toLowerCase();
+            var desc = (item.desc || '').toLowerCase();
+
+            return (
+                title.indexOf(query) !== -1 ||
+                desc.indexOf(query) !== -1
+            );
+
+        });
+
+
+        if (firstMatch) {
+
+            window.location.href = firstMatch.url;
+
+        } else {
+
+            performSearch();
+
+        }
+
+    });
+
+}
+
+
+// ==========================================
+// 🌟 MOBILE SEARCH BUTTON TOUCH
+// ==========================================
+
+if (searchBtn) {
+
+    searchBtn.addEventListener('touchend', function(e) {
+
+        e.preventDefault();
+
+        searchBtn.click();
+
+    });
+
+}
+
+})();
 </script>
 
 
